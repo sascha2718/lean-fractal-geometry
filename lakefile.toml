@@ -1,0 +1,45 @@
+name = "fractalgeometry"
+defaultTargets = ["FractalGeometry"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.35.0-rc2"
+
+# The glob covers the root module and every submodule, so `lake build` also runs
+# `FractalGeometry.AxCheck`. The root module does not import `AxCheck`, so
+# `import FractalGeometry` does not drag the audit in.
+[[lean_lib]]
+name = "FractalGeometry"
+globs = ["FractalGeometry", "FractalGeometry.*"]
+
+# Comparator audit modules, not part of the library and not default targets:
+# `Challenge` restates the headline theorems with `sorry`, `Solution` proves them
+# by the library declarations. See comparator-config.json.
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Solution"
+
+# Consolidated components retain their original Lean module names.
+
+[[lean_lib]]
+name = "GeometricMeasureTheory"
+
+[[lean_lib]]
+name = "BranchingProcess"
+
+[[lean_lib]]
+name = "AnalyticESC"
+
+[[lean_lib]]
+name = "BrownianImages"
+
+# Kittle–Kogler Theorem 1.1 dependency closure, with original options/licences.
+[[lean_lib]]
+name = "ExactOverlaps"
+roots = ["ExactOverlaps"]
+globs = ["ExactOverlaps.*"]
+srcDir = "vendor"
+leanOptions = { relaxedAutoImplicit = false, maxSynthPendingDepth = 3 }

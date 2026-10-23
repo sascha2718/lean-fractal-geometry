@@ -1,0 +1,20 @@
+FractalGeometry contains reusable Lean results and the following source libraries:
+GeometricMeasureTheory, BranchingProcess, AnalyticESC and BrownianImages.
+These components and FractalGeometry are distributed under Apache License 2.0.
+Source licences and additional notices are retained in provenance/.
+Public source revisions and file hashes are recorded in provenance/sources.json.
+
+BrownianImages/Renewal/ derives from Benny Avelin's AbsorptionCutoff:
+https://github.com/BennyAvelin/AbsorptionCutoff
+Commit 41c45c6d72e979419e46224bb7b4be5cee31f2b5.
+Copyright (c) 2026 Benny Avelin; Apache License 2.0.
+Original headers and licences are retained. See provenance/BrownianImages/NOTICE
+for the mathematical interfaces and adaptation details.
+
+vendor/ExactOverlaps/ contains the 554-module dependency closure of Theorem 1.1
+from Kittle and Kogler's public formalisation:
+https://github.com/ckkogler/exact-overlaps-one-dim-lean
+Commit 99c43adec5c5127ff9a65663641fe51f57c8f7d3.
+These files are unchanged. Its BSD Zero Clause licence and retained LpSelfSimilar
+notice are at vendor/LICENSE and vendor/LpSelfSimilar-LICENSE.
+See vendor/README.md for the selected scope and build options.

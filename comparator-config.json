@@ -1,0 +1,19 @@
+{
+    "challenge_module": "Challenge",
+    "solution_module": "Solution",
+    "theorem_names": [
+        "Challenge.audit_hutchinson",
+        "Challenge.audit_self_similar_unique",
+        "Challenge.audit_ahlfors",
+        "Challenge.audit_frostman",
+        "Challenge.audit_cantor_measure",
+        "Challenge.audit_homometric"
+    ],
+    "definition_names": [],
+    "permitted_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+    ],
+    "enable_nanoda": false
+}

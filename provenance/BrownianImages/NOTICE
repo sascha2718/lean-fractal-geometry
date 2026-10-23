@@ -1,0 +1,33 @@
+This repository contains third-party code.
+
+BrownianImages/Renewal/
+    Copyright (c) 2026 Benny Avelin.
+    Licensed under the Apache License, Version 2.0.
+    Source: https://github.com/BennyAvelin/AbsorptionCutoff
+    Commit: 41c45c6d72e979419e46224bb7b4be5cee31f2b5
+    Files:  AbsorptionCutoff/Supercritical/{Renewal, RenewalAbel, RenewalKernel,
+            RenewalSinc, RenewalApprox, RenewalEquation}.lean
+            (renamed to Basic, Abel, Kernel, Sinc, Approx, Equation).
+
+    This project retains the declarations needed by its proofs and documented
+    renewal interfaces. The vendored subset has the following modifications:
+      (1) imports use this project's module paths where needed;
+      (2) the renewal-limit chain uses 'FellerNonlattice' in place of the stronger
+          upstream 'Nonlattice'. Basic.lean defines that condition and its almost
+          everywhere consequence; forwarding declarations and three proof sites
+          are adjusted. The original 'Nonlattice' definition and its two
+          characteristic-function bounds remain for the proved comparison and
+          counterexamples;
+      (3) unused helpers are omitted from Basic.lean, Equation.lean and Kernel.lean,
+          including the discounted renewal-measure API and the upstream scalar
+          limit and angular-reconstruction wrappers. Related documentation is
+          updated, including two corrections to comments on non-lattice laws;
+      (4) sources use Lean's module system, with public imports and exposed public
+          definitions to preserve the retained library interfaces.
+    Each file carries a provenance header. See docs/renewal-library.md for the
+    retained mathematical interfaces and the non-lattice distinction.
+
+    A copy of the Apache License 2.0 is at BrownianImages/Renewal/LICENSE.
+
+Everything else in this repository is the work of the repository author and is
+licensed under the Apache License, Version 2.0; see LICENSE.

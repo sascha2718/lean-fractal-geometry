@@ -1,0 +1,29 @@
+/-
+Hausdorff, box, packing and Assouad dimensions.
+
+This subject entry point preserves the namespaces of the source libraries.
+See README.md for theorem names, hypotheses and provenance.
+-/
+import GeometricMeasureTheory.Hausdorff.Basic
+import GeometricMeasureTheory.Hausdorff.CantorSets
+import GeometricMeasureTheory.Hausdorff.Computing
+import GeometricMeasureTheory.Hausdorff.CoveringConventions
+import GeometricMeasureTheory.Hausdorff.DimensionProperties
+import GeometricMeasureTheory.Hausdorff.FlowsAndCuts
+import GeometricMeasureTheory.Hausdorff.Frostman
+import GeometricMeasureTheory.Hausdorff.GeneralGauges
+import GeometricMeasureTheory.Hausdorff.NonadditiveContent
+import GeometricMeasureTheory.Box.BoxDimension
+import GeometricMeasureTheory.Box.CoveringNumbers
+import GeometricMeasureTheory.Box.ModifiedBox
+import GeometricMeasureTheory.Box.PackingMeasure
+import GeometricMeasureTheory.Box.ScaleExamples
+import GeometricMeasureTheory.Assouad.AhlforsDimensions
+import GeometricMeasureTheory.Assouad.Basic
+import GeometricMeasureTheory.Assouad.Comparison
+import GeometricMeasureTheory.Assouad.Doubling
+import GeometricMeasureTheory.Assouad.MeasureDimensions
+import GeometricMeasureTheory.Assouad.WeakTangents
+import FractalGeometry.Dimension.LogLimit
+import FractalGeometry.Dimension.PhiAssouad.BoxComparison
+import FractalGeometry.Dimension.PhiAssouad.Assouad
