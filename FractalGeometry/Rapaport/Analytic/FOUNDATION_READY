@@ -1,0 +1,2 @@
+lake build FractalGeometry.Rapaport.Analytic.Poly FractalGeometry.Rapaport.Analytic.Statements
+# (this Lake version has no -j option; the command builds only these two modules)

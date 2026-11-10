@@ -100,7 +100,7 @@ run_cmd do
   let env ← getEnv
   let allowed := #[``propext, ``Classical.choice, ``Quot.sound]
   let roots := #[`FractalGeometry, `GeometricMeasureTheory, `BranchingProcess,
-    `AnalyticESC, `BrownianImages, `ExactOverlaps]
+    `AnalyticESC, `BrownianImages, `BoxLike, `ExactOverlaps]
   let mut counts : Array Nat := Array.replicate roots.size 0
   for (name, _) in env.constants.toList do
     if let some idx := env.getModuleIdxFor? name then

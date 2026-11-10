@@ -14,3 +14,4 @@ import FractalGeometry.Applications.BrownianImages
 import GeometricMeasureTheory
 import FractalGeometry.ExactOverlaps
 import FractalGeometry.SelfAffine
+import FractalGeometry.SelfAffine.BoxLike

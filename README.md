@@ -38,7 +38,8 @@ records public source revisions and file hashes.
 | [`FractalGeometry.Measures`](FractalGeometry/Measures.lean) | Frostman and Ahlfors regularity, covering theorems, densities and rectifiability |
 | [`FractalGeometry.SelfSimilar`](FractalGeometry/SelfSimilar.lean) | Hutchinson, homometry, Feng–Hu exact dimensionality, Shmerkin L^q bounds and Jordan–Rapaport dimension on the line |
 | [`FractalGeometry.SelfAffine`](FractalGeometry/SelfAffine.lean) | Planar affine systems; Falconer's affinity bound, Fraser's box dimension, Mackay's carpet Assouad dimension and Feng's Ledrappier–Young formula |
-| [`FractalGeometry.ExactOverlaps`](FractalGeometry/ExactOverlaps.lean) | Kittle–Kogler Theorem 1.1 and its 554-module proof dependency closure |
+| [`FractalGeometry.SelfAffine.BoxLike`](FractalGeometry/SelfAffine/BoxLike.lean) | Box-like self-affine sets with rotations: projections of the equilibrium state, Hausdorff dimension and Rapaport's diagonal dimension formula |
+| [`FractalGeometry.ExactOverlaps`](FractalGeometry/ExactOverlaps.lean) | Kittle–Kogler Theorem 1.1, the entropy rate without exact overlaps, and their 555-module proof dependency closure |
 | [`FractalGeometry.SelfConformal`](FractalGeometry/SelfConformal.lean) | Analytic systems, separation, conjugacy, cookie cutters and quasi-self-similarity |
 | [`FractalGeometry.Pressure`](FractalGeometry/Pressure.lean) | Pressure, Gibbs measures, planar matrix classification and quasi-subadditive limits |
 | [`FractalGeometry.Ergodic`](FractalGeometry/Ergodic.lean) | Birkhoff, Kingman, Shannon–McMillan–Breiman, Kolmogorov–Sinai, planar Furstenberg–Kesten and Oseledets |
@@ -126,6 +127,13 @@ dimension of a stationary measure for a finite real similarity system is
 weights are permitted. The declarations are
 `ExactOverlaps.SelfSimilar.System.theorem_1_1` and `theorem_1_1_ennreal` in
 [MainTheorem.Theorem11](vendor/ExactOverlaps/MainTheorem/Theorem11.lean).
+Without exact overlaps the random-walk entropy rate is the entropy of the weights:
+`ExactOverlaps.SelfSimilar.System.randomWalkEntropyRate_eq_of_noExactOverlaps` in
+[SelfSimilar.NoExactOverlaps](vendor/ExactOverlaps/SelfSimilar/NoExactOverlaps.lean).
+`BoxLike.kittleKoglerDimension_holds` in [KittleKogler](BoxLike/KittleKogler.lean)
+combines these with the source's exact-dimensionality theorem: a self-similar
+probability measure on ℝ with positive weights `p`, nonzero ratios `r` and injective
+word coding is exact-dimensional of dimension `min 1 (H(p) / -∑ p_j log |r_j|)`.
 
 ### Exact dimensionality without separation
 
@@ -216,6 +224,33 @@ equilibrium state at `0 < s < 2` of a finite contractive diagonal/anti-diagonal
 matrix family with both orientations and a proximal diagonal generator.
 This is a specialisation of [Morris–Shmerkin 2019, Theorem 3.1](#ref-morrisshmerkin2019);
 see [Rectangular.MorrisShmerkin](FractalGeometry/Pressure/Rectangular/MorrisShmerkin.lean).
+
+### Box-like self-affine sets with rotations
+
+Paper: [Käenmäki–Prokaj–Simon–Troscheit (KPST2026), arXiv:2611.09066v1](#ref-kpst2026).
+A system is a finite family of contracting affine maps of the plane with diagonal or
+anti-diagonal linear parts, both types present, and a proximal matrix tuple. Here `X` is
+the attractor, `s` its affinity dimension, `μ` an invariant equilibrium state at `s`, and
+`λ₂ ≤ λ₁ < 0` its Lyapunov exponents.
+
+| Result | Declaration(s) | Module |
+|---|---|---|
+| Coordinate projections of `π_*μ` under projective exponential separation: double-dimensional for `s < 2 - λ₁/λ₂`, exact-dimensional of dimension one otherwise | `FractalGeometry.boxLike_coordinateProjections` | [SelfAffine.BoxLike](FractalGeometry/SelfAffine/BoxLike.lean) |
+| `dim_H X = min{2, s}` without exact overlaps, if `s ≤ 2 - λ₁/λ₂`, the strong open set condition holds, or projective exponential separation holds | `FractalGeometry.boxLike_dimH_attractor` | [SelfAffine.BoxLike](FractalGeometry/SelfAffine/BoxLike.lean) |
+| `π_*μ` is exact-dimensional of dimension `s ≤ 2` if `h(μ) ≤ -λ₂` or the strong open set condition holds | `FractalGeometry.boxLike_exactDim_equilibrium` | [SelfAffine.BoxLike](FractalGeometry/SelfAffine/BoxLike.lean) |
+| Both pointwise dimensions `min 1 (h/|λ₁|)` and `min 1 (h/|λ₂|)` of the coordinate projections, for equilibrium states at every `s > 0` | `BoxLike.System.eq_state_proj_dim_all` | [ProjectionLarge](BoxLike/ProjectionLarge.lean) |
+| Lower bound `min{s, 2 - λ₁/λ₂} ≤ dim_H X` without exact overlaps, for `s < 2` | `BoxLike.System.threshold_bound` | [MainTwoProse.ThresholdBound](BoxLike/MainTwoProse/ThresholdBound.lean) |
+| Systems with prescribed projection dimensions `0 < s₂ < s₁ ≤ 1` | `BoxLike.PrescribedExample.projection_double_dimensional` | [PrescribedExample.Main](BoxLike/PrescribedExample/Main.lean) |
+| Strong separation and no exact overlaps without projective exponential separation | `BoxLike.NoOverlap.prop_ssc_no_overlap_not_pesc_holds`, `planar_separation_not_pesc_holds` | [BaranyKaenmaki](BoxLike/BaranyKaenmaki.lean) |
+| Diagonal systems: `dim_H X = min{2, s}` when both axis systems are exponentially separated | `BoxLike.Rapaport.rapaportDiagonalDimension_holds` | [Rapaport.Core](BoxLike/Rapaport/Core.lean); [Rapaport2023](#ref-rapaport2023) |
+| Lower local dimension of `π_*μ` is at most `min{2, dim_L μ}` for every ergodic `μ` | `BoxLike.System.ae_lowerLocalDim_map_proj_le`, `BoxLike.System.rossiBound` | [Rossi](BoxLike/Rossi.lean), [RossiBound](BoxLike/RossiBound.lean); [Rossi2014](#ref-rossi2014) |
+| Super-exponential condensation without exact overlaps | `BoxLike.NoOverlap.baranyKaenmakiPair_holds`, `not_countable_condensation` | [BaranyKaenmaki](BoxLike/BaranyKaenmaki.lean); [BaranyKaenmaki2021](#ref-baranykaenmaki2021) |
+
+`BoxLike` states each literature input as a `Prop`-valued definition and proves it in a
+`_holds` theorem. Declarations such as `BoxLike.System.eq_state_proj_dim_all` take these
+statements as parameters. The three `FractalGeometry.boxLike_*` endpoints, and the
+other declarations in the table whose names end in `_holds` or `_of_library`, have no
+such parameter.
 
 ### Analytic and conformal systems
 
@@ -416,6 +451,57 @@ support and states laws of realised trees, not unused coordinates of an offsprin
 Markov matching and their application endpoints. The full paper title identifies the source;
 it does not imply that its headline classification theorem is imported.
 
+<a id="ref-kpst2026"></a>
+
+#### KPST2026 — Hausdorff dimension of planar box-like self-affine sets with rotations
+
+Antti Käenmäki, R. Dániel Prokaj, Károly Simon and Sascha Troscheit.
+*Hausdorff dimension of planar box-like self-affine sets with rotations*. Preprint, 2026;
+numbering follows **arXiv:2611.09066v1**.
+[Paper, arXiv:2611.09066](https://arxiv.org/abs/2611.09066) ·
+[version v1](https://arxiv.org/abs/2611.09066v1) ·
+[formalisation revision](https://github.com/sascha2718/lean-diagonal-antidiagonal/tree/98b0ac170fa73e32a71f2a655c889bc7cfd1158c).
+
+| Paper result | Coverage and Lean entry |
+|---|---|
+| Theorem A, coordinate projections of the equilibrium state at the affinity dimension | **Proved**; `FractalGeometry.boxLike_coordinateProjections` in [SelfAffine.BoxLike](FractalGeometry/SelfAffine/BoxLike.lean), from `BoxLike.System.main1_dimaff_all` in [MainOneFull](BoxLike/MainOneFull.lean) |
+| Theorem B, Hausdorff dimension equals `min{2, dimaff}`, with its furthermore clause | **Proved**; `FractalGeometry.boxLike_dimH_attractor` in [SelfAffine.BoxLike](FractalGeometry/SelfAffine/BoxLike.lean), from `BoxLike.System.main2_full_of_library` and `main2_furthermore_of_library` in [MainTwoProse.Full](BoxLike/MainTwoProse/Full.lean) |
+| Theorem 4.16, dimension of the projected equilibrium state | **Proved**; `FractalGeometry.boxLike_exactDim_equilibrium` in [SelfAffine.BoxLike](FractalGeometry/SelfAffine/BoxLike.lean), from `BoxLike.System.main_extended` in [MainExtended](BoxLike/MainExtended.lean); `main_extended_ge_two` gives dimension two for `s ≥ 2` under the strong open set condition |
+| Theorem 1.1, Hochman–Rapaport's dimension formula | **Stated, not proved**, and unused; see [HochmanRapaport2022](#ref-hochmanrapaport2022) |
+| Theorem 1.2, Rapaport's dimension formula for diagonal systems | **Proved**; `BoxLike.Rapaport.rapaportDiagonalDimension_holds` in [Rapaport.Core](BoxLike/Rapaport/Core.lean); see [Rapaport2023](#ref-rapaport2023) |
+| Theorem 1.3, Fraser's packing and box dimension formula | **Proved**; `BoxLike.System.fraserBound_holds` in [Fraser.UpperBound](BoxLike/Fraser/UpperBound.lean) and `fraserROSC_holds` in [Fraser.Main](BoxLike/Fraser/Main.lean); see [Fraser2012](#ref-fraser2012) |
+| Question 1.4, coincident projection dimensions without exact overlaps | Open question; [OpenQuestion](BoxLike/OpenQuestion.lean) records it and asserts no answer |
+| Lemma 2.2, classification of irreducibility for planar tuples | **Proved**; `BoxLike.tuple_classification` in [Classification](BoxLike/Classification.lean) |
+| Proposition 2.7, strong separation without projective exponential separation | **Proved** in the form with a constant `C₀`; `BoxLike.NoOverlap.prop_ssc_no_overlap_not_pesc_holds` in [BaranyKaenmaki](BoxLike/BaranyKaenmaki.lean); see [BaranyKaenmaki2021](#ref-baranykaenmaki2021) |
+| Proposition 3.10, equilibrium states of irreducible tuples | **Proved**; `BoxLike.MatrixTuple.irred_eq_state_of_fengKaenmaki` in [IrreducibleEquilibriumTuple](BoxLike/IrreducibleEquilibriumTuple.lean), with its parameter supplied by `BoxLike.fengKaenmakiNormEquilibrium_holds` in [QuasiMultiplicative.Main](BoxLike/QuasiMultiplicative/Main.lean) |
+| Proposition 3.14, decomposition of the equilibrium state into two Gibbs measures | **Proved**; `BoxLike.fraserJordanJurgaDecomposition_holds` in [FraserJordanJurga.Main](BoxLike/FraserJordanJurga/Main.lean) with `BoxLike.equilibriumGibbs` in [EquilibriumGibbs](BoxLike/EquilibriumGibbs.lean) |
+| Theorem 4.2, Feng's Ledrappier–Young formula | **Proved**; `BoxLike.planarFengLedrappierYoung_holds` and `fengLedrappierYoungBar_holds` in [FengLedrappierYoung](BoxLike/FengLedrappierYoung.lean) |
+| Theorem 4.4, dimensions of the projections of the equilibrium state | **Source assembly**; `BoxLike.System.eq_state_proj_dim_all` in [ProjectionLarge](BoxLike/ProjectionLarge.lean) takes four literature statements, each proved in this collection, as parameters |
+| Example 4.5, prescribed double-dimensional projections | **Source assembly**; `BoxLike.PrescribedExample.projection_double_dimensional` in [PrescribedExample.Main](BoxLike/PrescribedExample/Main.lean), with the same parameters |
+| Remark 4.17, lower bound `min{dimaff, 2 - λ₁/λ₂}` | **Source assembly**; `BoxLike.System.threshold_bound` in [MainTwoProse.ThresholdBound](BoxLike/MainTwoProse/ThresholdBound.lean), with literature statements proved in this collection as parameters |
+
+The original project formalises 42 of the paper's 44 numbered statements; the module index
+in [BoxLike.lean](BoxLike.lean) maps them to modules. This collection imports its library;
+it does not import the original `Challenge.lean` and `Solution.lean`, whose comparator audit
+states Theorems A, B and 4.16 over Mathlib alone. Lean represents the alphabet by a finite
+type, orientations by `ZMod 2`, and the plane by `ℝ × ℝ` with the supremum norm. The
+headline results hold for every invariant equilibrium state.
+
+`BoxLike` also contains its own proofs of the background results it uses. Each is listed
+separately under its literature entry:
+[Birkhoff1931](#ref-birkhoff1931), [Kingman1968](#ref-kingman1968),
+[FurstenbergKesten1960](#ref-furstenbergkesten1960), [Oseledec1968](#ref-oseledec1968),
+[Breiman1957](#ref-breiman1957), [Bowen1975](#ref-bowen1975),
+[Hutchinson1981](#ref-hutchinson1981), [Falconer1988](#ref-falconer1988),
+[Fraser2012](#ref-fraser2012), [FengHu2009](#ref-fenghu2009),
+[FengKaenmaki2011](#ref-fengkaenmaki2011), [Shmerkin2019](#ref-shmerkin2019),
+[MorrisShmerkin2019](#ref-morrisshmerkin2019),
+[FraserJordanJurga2020](#ref-fraserjordanjurga2020),
+[JordanRapaport2021](#ref-jordanrapaport2021), [Feng2023](#ref-feng2023) and
+[KittleKogler2026](#ref-kittlekogler2026). The `BoxLike` declarations are stated for that
+collection's interfaces and are distinct from the `FractalGeometry` declarations in the
+same entries.
+
 <a id="ref-gmt2026"></a>
 
 #### GMT2026 — Geometric Measure Theory: Dynamics and Randomness
@@ -450,8 +536,17 @@ on the real line*. Preprint, 2026. **arXiv:2610.10511v1**.
 **Theorem 1.1:** the dimension formula in terms of random-walk entropy and the Lyapunov
 exponent is provided by `ExactOverlaps.SelfSimilar.System.theorem_1_1` in
 [MainTheorem.Theorem11](vendor/ExactOverlaps/MainTheorem/Theorem11.lean).
-The 554 source modules needed for this theorem are retained unchanged, with the
-upstream licences. The upstream umbrella and 38 other modules are not included.
+`ExactOverlaps.SelfSimilar.System.randomWalkEntropyRate_eq_of_noExactOverlaps` in
+[SelfSimilar.NoExactOverlaps](vendor/ExactOverlaps/SelfSimilar/NoExactOverlaps.lean)
+identifies the entropy rate with the entropy of the weights when there are no exact
+overlaps. The 555 source modules needed for these results are retained unchanged, with the
+upstream licences. The upstream umbrella and 37 other modules are not included.
+
+**Theorem 1.1 without exact overlaps, `BoxLike` collection: proved from the vendored library.**
+`BoxLike.kittleKoglerDimension_holds` in [BoxLike.KittleKogler](BoxLike/KittleKogler.lean)
+proves `BoxLike.KittleKoglerDimension`: for nonzero ratios of modulus below one, positive
+weights and injective word coding, every stationary probability measure is exact-dimensional
+with dimension `min 1 (H(p) / |χ|)`.
 
 <a id="ref-hutchinson1981"></a>
 
@@ -468,6 +563,11 @@ specialisations in [FractalGeometry.Hutchinson](FractalGeometry/Hutchinson.lean)
 the stopping-cylinder and Ahlfors-regularity specialisations are in
 [StoppingGeometry](BrownianImages/StoppingGeometry.lean). The original small library's
 [AhlforsRegular](FractalGeometry/AhlforsRegular.lean) instead assumes strong separation.
+
+**Invariant-measure uniqueness, `BoxLike` collection: proved.**
+`BoxLike.System.IsInvariantMeasure.unique` in
+[BoxLike.InvariantMeasure](BoxLike/InvariantMeasure.lean) proves that a box-like system with
+a probability vector has at most one invariant probability measure on the plane.
 
 <a id="ref-schief1994"></a>
 
@@ -494,6 +594,10 @@ together with the maximal inequality `FractalGeometry.Ergodic.maximal_ergodic` u
 This identifies the classical theorem; no numbered correspondence with Birkhoff's flow
 formulation is asserted.
 
+**`BoxLike` collection: proved.** `BoxLike.birkhoff_ae`, `BoxLike.birkhoff_ergodic` and
+the maximal inequality `BoxLike.maximal_ergodic` in [BoxLike.Birkhoff](BoxLike/Birkhoff.lean)
+prove the theorem for a measure-preserving map of a probability space.
+
 <a id="ref-kingman1968"></a>
 
 #### Kingman1968 — The ergodic theory of subadditive stochastic processes
@@ -513,6 +617,11 @@ Henri Poincaré, Probabilités et Statistiques 25**(1) (1989), 93–98
 ([full text](https://www.numdam.org/item/AIHPB_1989__25_1_93_0.pdf)).
 These are proof sources for the same Lean theorem, not extra independent endpoints.
 
+**`BoxLike` collection: proved.** `BoxLike.kingman_ae`, `BoxLike.kingman_ergodic` and
+`BoxLike.kingman_ergodic_of_tendsto` in [BoxLike.Kingman](BoxLike/Kingman.lean) prove the
+theorem for integrable subadditive cocycles from `BoxLike.birkhoff_ae`, including the
+negative-infinity limit.
+
 <a id="ref-furstenbergkesten1960"></a>
 
 #### FurstenbergKesten1960 — Products of random matrices
@@ -525,6 +634,12 @@ planar tuples, `FractalGeometry.MatrixTuple.tendsto_log_norm_pastProd` and
 `FractalGeometry.MatrixTuple.tendsto_log_alpha₂_pastProd` in
 [FurstenbergKesten](FractalGeometry/Ergodic/FurstenbergKesten.lean), derived from Kingman's theorem.
 The original paper's full random-matrix generality is not asserted.
+
+**`BoxLike` collection: specialisation.** `BoxLike.MatrixTuple.tendsto_log_norm_pastProd`
+and `BoxLike.MatrixTuple.tendsto_log_alpha₂_pastProd` in
+[BoxLike.FurstenbergKesten](BoxLike/FurstenbergKesten.lean) give the almost-sure limits
+`λ₁` and `λ₂` along backward products of an invertible planar tuple, for an ergodic measure
+on the two-sided shift.
 
 <a id="ref-oseledec1968"></a>
 
@@ -541,6 +656,14 @@ filtration in [Oseledets](FractalGeometry/Ergodic/Oseledets.lean) and
 arbitrary-dimensional multiplicative ergodic theorem. The citation uses the original
 Russian edition's pagination.
 
+**`BoxLike` collection: planar specialisation with distinct Lyapunov exponents.**
+`BoxLike.MatrixTuple.measure_regularSet_compl_of_ergodic` in
+[BoxLike.Planar.OseledetsTheorem](BoxLike/Planar/OseledetsTheorem.lean) proves that the
+regular set of an invertible planar tuple has full measure for every ergodic measure with
+`λ₂ < λ₁`, and `BoxLike.PlanarSystem.measure_SigmaPrime_compl_of_ergodic` states this for
+planar self-affine systems. [BoxLike.OseledetsFiltration](BoxLike/OseledetsFiltration.lean)
+contains the Oseledets set and filtration of a tuple and their existence for box-like tuples.
+
 <a id="ref-breiman1957"></a>
 
 #### Breiman1957 — The individual ergodic theorem of information theory
@@ -554,6 +677,13 @@ as `FractalGeometry.shannonMcMillanBreiman`, with the non-ergodic conditional-en
 The Kolmogorov–Sinai generator identity for the time-zero partition is separately proved as
 `FractalGeometry.ksEntropy_shift_eq_entropy` in [KolmogorovSinai](FractalGeometry/Ergodic/KolmogorovSinai.lean),
 following the entropy framework of [Bowen1975, Chapter 2](#ref-bowen1975).
+
+**`BoxLike` collection: proved.** `BoxLike.shannonMcMillanBreiman` in
+[BoxLike.ShannonMcMillanBreiman](BoxLike/ShannonMcMillanBreiman.lean) proves
+`BoxLike.ShannonMcMillanBreimanStatement`: for every ergodic invariant probability measure
+on the two-sided shift over a finite alphabet, `-n⁻¹ log μ([x₀ ⋯ x_{n-1}])` converges almost
+everywhere to the entropy. The generator identity is `BoxLike.ksEntropy_shift_eq_entropy`
+in [BoxLike.KolmogorovSinai](BoxLike/KolmogorovSinai.lean).
 
 <a id="ref-branching-classics"></a>
 
@@ -619,6 +749,15 @@ an independent proof of Bowen's theorem in that interface.
 [KolmogorovSinai](FractalGeometry/Ergodic/KolmogorovSinai.lean) identifies the full
 measure-theoretic entropy with the entropy rate of the coordinate partition.
 
+**Theorem 1.4, `BoxLike` collection: proved for the parity shift.**
+`BoxLike.bowenGibbsExistence` and `BoxLike.existsUnique_ergodic_isGibbsPotential` in
+[BoxLike.Bowen.Main](BoxLike/Bowen/Main.lean) prove existence and uniqueness of an ergodic
+Gibbs probability measure for every Hölder potential on the parity shift, when both
+orientation values occur. The unique measure satisfies the Gibbs bounds with pressure constant
+`BoxLike.pressureZPot o f`.
+The generator theorem of Chapter 2 is `BoxLike.ksEntropy_shift_eq_entropy` in
+[BoxLike.KolmogorovSinai](BoxLike/KolmogorovSinai.lean).
+
 <a id="ref-fraserjordanjurga2020"></a>
 
 #### FraserJordanJurga2020 — Dimensions of equilibrium measures on a class of planar self-affine sets
@@ -637,6 +776,15 @@ has positive diagonal/anti-diagonal coefficients, both orientations and a proxim
 diagonal generator; `0 < s < 2`. The formal hypothesis is `RectangularIFS.PositiveRatios`.
 This endpoint does not include the pressure equalities, the strict inequality in
 Corollary 1.6, or the paper's later measure-dimension formula.
+
+**Lemma 1.3 and Corollaries 1.5–1.6, `BoxLike` collection: proved decomposition and
+Lyapunov-identity parts.** `BoxLike.fraserJordanJurgaDecomposition_holds` in
+[BoxLike.FraserJordanJurga.Main](BoxLike/FraserJordanJurga/Main.lean) proves
+`BoxLike.FraserJordanJurgaDecomposition`: for a box-like system with rotations and a
+proximal diagonal generator and `0 < s < 2`, an invariant probability measure with the
+singular-value Gibbs bounds decomposes into two ergodic Gibbs measures on the parity shift,
+whose coordinate integrals are its two Lyapunov exponents. The pressure identities are in
+[BoxLike.PressureZ](BoxLike/PressureZ.lean).
 
 <a id="ref-shmerkin2019"></a>
 
@@ -666,6 +814,16 @@ Its proof uses Hochman's convolution-saturation result through the included
 The paper's Furstenberg-intersection and general dynamically driven results are
 not claimed by this collection.
 
+**Theorem 6.6, `BoxLike` collection: proved lower-bound consequence.**
+`BoxLike.shmerkinLqDimension_holds` in [BoxLike.Shmerkin](BoxLike/Shmerkin.lean) proves
+`BoxLike.ShmerkinLqDimension`, the same eventual bound over finite collections of dyadic
+intervals, for ratios, translations and weights given as functions on a finite type and
+separation in the form `BoxLike.ShmerkinExpSeparation`. The argument is assembled in
+[BoxLike.Shmerkin.Main](BoxLike/Shmerkin/Main.lean), and
+`BoxLike.Shmerkin.Bourgain.corollary310Weak` in
+[BoxLike.Shmerkin.Bourgain.Cor](BoxLike/Shmerkin/Bourgain/Cor.lean) proves a weak form of
+**Corollary 3.10**.
+
 <a id="ref-jordanrapaport2021"></a>
 
 #### JordanRapaport2021 — Dimension of ergodic measures projected onto self-similar sets with overlaps
@@ -686,6 +844,13 @@ is exact-dimensional with dimension `min 1 (-entropy / lyapunov)`.
 its coding map uses the nonnegative coordinates. The proof uses the proved
 [Shmerkin lower bound](#ref-shmerkin2019), with no remaining literature hypothesis.
 
+**Theorem 1.1, `BoxLike` collection: proved for the projective system.**
+`BoxLike.jordanRapaportDimension_of_shmerkin` in
+[BoxLike.JordanRapaport](BoxLike/JordanRapaport.lean), applied to
+`BoxLike.shmerkinLqDimension_holds`, proves `BoxLike.JordanRapaportDimension`: under
+projective exponential separation, the image under `π̄` of every ergodic invariant
+probability measure `ν` is exact-dimensional with dimension `min 1 (-entropy ν / lyapBar ν)`.
+
 <a id="ref-morrisshmerkin2019"></a>
 
 #### MorrisShmerkin2019 — On equality of Hausdorff and affinity dimensions, via self-affine measures on positive subsystems
@@ -704,6 +869,11 @@ both diagonal and anti-diagonal matrices and a proximal diagonal generator.
 Its proof includes the equal-exponents/Bernoulli argument of **Lemma 3.4** and the
 non-Bernoulli obstruction of **Lemma 3.5**. The full-support clause and general
 irreducible-matrix form of Theorem 3.1 are not claimed by this endpoint.
+
+**Theorem 3.1, `BoxLike` collection: proved box-like specialisation.**
+`BoxLike.morrisShmerkinLyapunov_holds` in [BoxLike.MorrisShmerkin](BoxLike/MorrisShmerkin.lean)
+proves `BoxLike.MorrisShmerkinLyapunov`: for a box-like system with rotations and a proximal
+diagonal generator and `0 < s < 2`, every invariant equilibrium state has `λ₂ < λ₁`.
 
 <a id="ref-fraser2012"></a>
 
@@ -727,6 +897,14 @@ the affinity dimension: `FractalGeometry.RectangularIFS.fraser_full_projections`
 in [FullProjections](FractalGeometry/SelfAffine/Rectangular/FullProjections.lean).
 The affinity dimension is shared with the general planar `AffineIFS` interface.
 
+**Theorem 2.3, `BoxLike` collection: proved.** For every `BoxLike.System`,
+`BoxLike.System.fraserBound_holds` in [BoxLike.Fraser.UpperBound](BoxLike/Fraser/UpperBound.lean)
+proves packing dimension = upper box dimension ≤ the modified affinity dimension, and
+`BoxLike.System.fraserROSC_holds` in [BoxLike.Fraser.Main](BoxLike/Fraser/Main.lean) proves
+that packing, lower box and upper box dimensions equal it under the rectangular open set
+condition. The modified affinity dimension is defined in
+[BoxLike.ModifiedAffinity](BoxLike/ModifiedAffinity.lean).
+
 <a id="ref-fenghu2009"></a>
 
 #### FengHu2009 — Dimension theory of iterated function systems
@@ -747,6 +925,12 @@ without separation. It does not yet express that constant using projection entro
 [Dimension.Rapaport](AnalyticESC/Dimension/Rapaport.lean). It remains a hypothesis
 of the dimension consequences indexed here.
 
+**Theorem 2.8, `BoxLike` collection: proved for the projective system.**
+`BoxLike.fengHuExactDim_holds` in [BoxLike.FengHu](BoxLike/FengHu.lean) proves
+`BoxLike.FengHuExactDim`: for the projective system of a box-like system and every ergodic
+invariant probability measure `ν`, the measure `π̄_*ν` is exact-dimensional. No separation
+condition is assumed.
+
 <a id="ref-rapaport2024"></a>
 
 #### Rapaport2024 — Dimension of self-conformal measures associated to an exponentially separated analytic IFS on ℝ
@@ -759,6 +943,64 @@ They appear as `AnalyticESC.RapaportMeasureStatement` and `AnalyticESC.RapaportS
 in [Dimension.Rapaport](AnalyticESC/Dimension/Rapaport.lean); the former also bundles
 the exact-dimensionality conclusion from [FengHu2009, Theorem 2.8](#ref-fenghu2009).
 Theorems using these parameters remain conditional even though they have no nonstandard axioms.
+
+<a id="ref-rapaport2023"></a>
+
+#### Rapaport2023 — Dimension of diagonal self-affine sets and measures via non-conformal partitions
+
+Ariel Rapaport. *Dimension of diagonal self-affine sets and measures via non-conformal
+partitions*. Preprint, 2023; numbering follows **arXiv:2309.03985v1**.
+[Paper, version v1](https://arxiv.org/abs/2309.03985v1).
+**Theorem 1.3: proved in the plane.** `BoxLike.Rapaport.rapaportDiagonalDimension_holds` in
+[Rapaport.Core](BoxLike/Rapaport/Core.lean) proves `BoxLike.RapaportDiagonalDimension`:
+a proximal diagonal system whose two axis systems are exponentially separated has
+`dim_H X = min{2, dimaff X}`. The homogeneous case is
+`rapaportDiagonalDimension_homogeneous_holds`. The proof uses the quantitative central
+limit theorem of [KittleKogler2026](#ref-kittlekogler2026) in place of Berry–Esseen, and
+[Feng2023](#ref-feng2023) with Kittle–Kogler for deficient projections. The modules are in
+[BoxLike/Rapaport](BoxLike/Rapaport.lean). Higher dimensions and the measure statements
+of the paper are not claimed.
+
+<a id="ref-hochmanrapaport2022"></a>
+
+#### HochmanRapaport2022 — Hausdorff dimension of planar self-affine sets and measures with overlaps
+
+Michael Hochman and Ariel Rapaport. *Hausdorff dimension of planar self-affine sets and
+measures with overlaps*. **Journal of the European Mathematical Society 24** (2022);
+statement read in **arXiv:1904.09812v2**.
+[Paper, version v2](https://arxiv.org/abs/1904.09812v2).
+**Theorem 1.1: stated, not proved.** `BoxLike.HochmanRapaportDimension` in
+[LiteratureHochmanRapaport](BoxLike/LiteratureHochmanRapaport.lean) is a `Prop`-valued
+definition for proximal, strongly irreducible, exponentially separated planar systems.
+No declaration in this collection uses it.
+
+<a id="ref-baranykaenmaki2021"></a>
+
+#### BaranyKaenmaki2021 — Super-exponential condensation without exact overlaps
+
+Balázs Bárány and Antti Käenmäki. *Super-exponential condensation without exact overlaps*.
+**Advances in Mathematics 379** (2021); numbering follows **arXiv:1910.04623v4**.
+[Paper, version v4](https://arxiv.org/abs/1910.04623v4).
+**Theorem 2.1: proved in a corrected form.** `BoxLike.NoOverlap.not_countable_condensation`
+in [BaranyKaenmaki](BoxLike/BaranyKaenmaki.lean) proves that, for every positive sequence
+`η`, uncountably many pairs `(λ, t)` generate a free semigroup with `Δ_n < η_n` for all
+`n ≥ 5`. `baranyKaenmakiPair_holds` gives a transcendental `λ` with
+`Δ_n ≤ C₀ exp(-n²)` for all `n ≥ 1`. The proof is by Baire category. The statement with
+`n ≥ 1` and no constant is false: `BoxLike.NoOverlap.not_baranyKaenmakiTheorem` in
+[BaranyKaenmakiCounterexample](BoxLike/BaranyKaenmakiCounterexample.lean).
+
+<a id="ref-rossi2014"></a>
+
+#### Rossi2014 — Local dimensions of measures on infinitely generated self-affine sets
+
+Eino Rossi. *Local dimensions of measures on infinitely generated self-affine sets*.
+**Journal of Mathematical Analysis and Applications 413** (2014).
+[DOI: 10.1016/j.jmaa.2013.12.030](https://doi.org/10.1016/j.jmaa.2013.12.030).
+**Theorem 2.2, upper bound: proved for finite box-like systems.**
+`BoxLike.System.ae_lowerLocalDim_map_proj_le` in [Rossi](BoxLike/Rossi.lean) bounds the
+lower local dimension of the projection of an ergodic measure by `min{2, dim_L μ}`
+almost everywhere, and `BoxLike.System.rossiBound` in [RossiBound](BoxLike/RossiBound.lean)
+gives the upper Hausdorff dimension bound. Infinitely generated systems are not claimed.
 
 <a id="ref-falconer1988"></a>
 
@@ -773,6 +1015,14 @@ Kenneth J. Falconer. *The Hausdorff dimension of self-affine fractals*.
 Hausdorff dimension by `min(2, affinity dimension)` for finite nonempty invertible
 contractive planar systems. No separation condition is assumed. The paper's
 almost-every-translation equality is not proved here.
+
+**Theorem 5.4, upper-bound part, `BoxLike` collection: proved.**
+`BoxLike.System.upperBoxDim_attractor_le` and `BoxLike.System.dimH_attractor_le` in
+[BoxLike.FalconerBound](BoxLike/FalconerBound.lean) bound the upper box and Hausdorff
+dimensions of every box-like attractor by `min(2, affinity dimension)`.
+`BoxLike.PlanarSystem.dimH_attractor_le` and `BoxLike.PlanarSystem.packingDim_attractor_le`
+in [BoxLike.Planar.FalconerBound](BoxLike/Planar/FalconerBound.lean) give the bound for that
+collection's planar self-affine systems.
 
 <a id="ref-li1980"></a>
 
@@ -832,6 +1082,23 @@ De-Jun Feng. *Dimension of invariant measures for affine iterated function syste
 The statement requires invertible contracting maps and distinct Lyapunov exponents.
 Arbitrary dimension, coincident exponents and general average contraction are not covered.
 
+**Theorems 1.2 and 1.3, `BoxLike` collection: proved planar specialisation.**
+`BoxLike.planarFengLedrappierYoung_holds`, `BoxLike.fengLedrappierYoung_holds` and
+`BoxLike.fengLedrappierYoungBar_holds` in
+[BoxLike.FengLedrappierYoung](BoxLike/FengLedrappierYoung.lean) prove the Ledrappier–Young
+formula for ergodic measures: for planar self-affine systems and for box-like systems with
+`λ₂ < λ₁`, and for the projective system on the line.
+
+**Lemma 4.6, first identity of (4.16), `BoxLike` collection: proved.**
+`BoxLike.fengInfoSum_holds` in [BoxLike.FengIdentity](BoxLike/FengIdentity.lean) and
+`BoxLike.fengInfoSumBar_holds` in [BoxLike.FengIdentityBar](BoxLike/FengIdentityBar.lean)
+write the information of a cylinder under the conditional measures as a Birkhoff sum of
+conditional information, for the planar and the projective partitions.
+`BoxLike.feng_entropy_as_limit_general` and `BoxLike.feng_entropy_zero_general` in
+[BoxLike.Planar.FengGeneral](BoxLike/Planar/FengGeneral.lean) express the conditional
+entropies as almost-sure limits along cylinders and show that one vanishes exactly when the
+conditional measure is a Dirac mass.
+
 <a id="ref-fengkaenmaki2011"></a>
 
 #### FengKaenmaki2011 — Equilibrium states of the pressure function for products of matrices
@@ -848,6 +1115,14 @@ ergodic equilibrium state on the two-sided shift, with Gibbs bounds, for `q > 0`
 on the one-sided shift. Both are in
 [FengKaenmaki](FractalGeometry/Pressure/FengKaenmaki.lean).
 Pressure differentiability is not asserted by these endpoints.
+
+**Proposition 1.2, `BoxLike` collection: proved planar Gibbs and uniqueness parts.**
+`BoxLike.fengKaenmakiNormEquilibrium_holds`, `BoxLike.fengKaenmakiGibbs_holds` and
+`BoxLike.fengKaenmakiUnique_holds` in
+[BoxLike.QuasiMultiplicative.Main](BoxLike/QuasiMultiplicative/Main.lean) prove the
+proposition for irreducible invertible planar tuples and potentials `‖·‖^q`, and its
+singular-value forms for irreducible box-like systems with `0 < s < 2`: the Gibbs bounds
+and uniqueness of the equilibrium state.
 
 <a id="ref-bky2026"></a>
 
@@ -944,8 +1219,9 @@ The endpoint does not cover every finitely supported offspring law or part (i).
 
 ## Source collections
 
-The snapshot date is **22 October 2026**. The [manifest](provenance/sources.json)
-records source revisions, retained files, hashes and integration changes.
+The snapshot date is **22 October 2026**; `BoxLike` was added on **10 November 2026**.
+The [manifest](provenance/sources.json) records source revisions, retained files,
+hashes and integration changes.
 
 | Collection | Included source modules | Public source |
 |---|---:|---|
@@ -953,7 +1229,8 @@ records source revisions, retained files, hashes and integration changes.
 | `AnalyticESC` | 45 | [Analytic exponential separation](https://github.com/sascha2718/lean-dual-analytic-ifs) |
 | `BranchingProcess` | 15 | [Tree and branching-process formalisation](https://github.com/sascha2718/qi-trees-and-matching-lean) |
 | `BrownianImages` | 143 | [Brownian-image formalisation](https://github.com/sascha2718/lean-brownian-images) |
-| `ExactOverlaps` | 554 | [Kittle–Kogler formalisation](https://github.com/ckkogler/exact-overlaps-one-dim-lean) |
+| `BoxLike` | 265 | [Box-like self-affine sets with rotations](https://github.com/sascha2718/lean-diagonal-antidiagonal) |
+| `ExactOverlaps` | 555 | [Kittle–Kogler formalisation](https://github.com/ckkogler/exact-overlaps-one-dim-lean) |
 
 `FractalGeometry` supplies the self-similar core, the independent ergodic/entropy
 and covering-limit modules, and the subject imports listed above.

@@ -1,6 +1,6 @@
 {
   "snapshot_date": "2026-10-22",
-  "selection": "Reusable library modules and the dependency closure of ExactOverlaps.MainTheorem.Theorem11. Internal source-location metadata is not distributed.",
+  "selection": "Reusable library modules and the dependency closure of ExactOverlaps.MainTheorem.Theorem11 and ExactOverlaps.SelfSimilar.NoExactOverlaps. Internal source-location metadata is not distributed.",
   "projects": [
     {
       "namespace": "GeometricMeasureTheory",
@@ -1268,6 +1268,1339 @@
         }
       ],
       "source_license_file": "provenance/BrownianImages/LICENSE"
+    },
+    {
+      "namespace": "BoxLike",
+      "repository": "https://github.com/sascha2718/lean-diagonal-antidiagonal",
+      "commit": "98b0ac170fa73e32a71f2a655c889bc7cfd1158c",
+      "files": [
+        {
+          "path": "BoxLike.lean",
+          "source_sha256": "efbe257194904d0fe02a4fbeec494973ac64baedf1a4ab897f61b5a43f6f3122",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/AffinityDim.lean",
+          "source_sha256": "07ca574fe53e16660d60ebe51364d73645c4b7271daf85e8abe0b835a7036544",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/AffinityMain.lean",
+          "source_sha256": "1ea339bac4feb1d77c80d8639fc1368e0bae6b0e62ba9df467266894f53b71ed",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Aligned/BoxLikeProximal.lean",
+          "source_sha256": "e3f4c632fafdb2994405abdad8b1e644237218755a0a615409c084c54747eb84",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Aligned/BoxLikeSA.lean",
+          "source_sha256": "e0a74461d1e04234baee32b295f748856708c6858c08cf76543b6786b66ecedc",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Aligned/ConditionalTwoWays.lean",
+          "source_sha256": "9e1c7dbe4a6c453d0984ff606bee518c974c1685faf32f282e5e346b359a3f30",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Aligned/MeasureDimSets.lean",
+          "source_sha256": "827e62ff5c88b5921c0ed244f006284f0f8913c8aefae93c58fc228061f8699e",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Aligned/NoOverlapPESC.lean",
+          "source_sha256": "06a7a44bf4f0cefcde492894cd252c1bd070aeb6565dc9c6d1025ad2acfbb186",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Aligned/NoOverlapPESCDim.lean",
+          "source_sha256": "690b6256976c71d58d99905945c5f21bb40cf74bd89492ce1eb7a0bb66d9d754",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Aligned/NoOverlapPESCFree.lean",
+          "source_sha256": "8417b60e1f8239bba143217bad9f5372869f3958ebcbb266cb4bf36730aed65e",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Aligned/NoOverlapPESCParams.lean",
+          "source_sha256": "a8f55e3f6e367a6e02dfd019c279ba6dd806e507b528899204be2a1d8eb82c7c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Aligned/SigmaTauOmega.lean",
+          "source_sha256": "22cd14cef0ee6f5763738148d2ab25a53dc6727f9f54d777944ce72181ae8478",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Attractor.lean",
+          "source_sha256": "6a61bb8e2d131e660599c43e8460aea5f26035019c7d387b3a7ece702cdabd98",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/AverageEntropy.lean",
+          "source_sha256": "dda1ee19ae32f9cbc04b72d111195b535772854fd42b0d987008a343e9e68892",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/AxisSeparation.lean",
+          "source_sha256": "e18fe42424cba707fe967af6d039c2ea504465405edd2593df68b2b17ed8c94d",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/BaranyKaenmaki.lean",
+          "source_sha256": "78abb4c2cca9e85e42b63497f98acd3924f1858174be72e55a4a64150734a6e2",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/BaranyKaenmakiCounterexample.lean",
+          "source_sha256": "230b511f68b2be2ea68e6876f7a52fbf1ad53a9c53efd0e33cc3d270b1c9a569",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/BernoulliEntropy.lean",
+          "source_sha256": "b2375c6a599c71be67b40d967dc9c902ffa9d5e80658cb134e024b6069af87a8",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/BernoulliEquilibrium.lean",
+          "source_sha256": "7f61f1dcaadad7f16bbd25401ee43f9968c18822cc01caf1cb05000ac0dfd93c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/BernoulliGrouping.lean",
+          "source_sha256": "3191f638708d8379aff8edc6c08cb87ab07a56a7a718c35b3185e3ed56f5d059",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Birkhoff.lean",
+          "source_sha256": "355287b500667491a518e0073f062b1feaee802703cc23b706f48231b43d0c14",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Bowen/Defs.lean",
+          "source_sha256": "0bf8d0b193c85f10b9bb1f3155a5dcf5450b17e6e7345906d373de414ab1d96d",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Bowen/Ergodic.lean",
+          "source_sha256": "d0d0e8a47b9a05e9d23d7d7f2394dd54f6eb72ccb496a06d160c2ec86c1b1854",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Bowen/Limit.lean",
+          "source_sha256": "7056f67487baa7051902c9eb5879031fde19823f4aecab8361337664f9c8bd46",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Bowen/Main.lean",
+          "source_sha256": "3eb5e8166f56d8bd0b3752ec38286b6ae980deaea5ff160c8b0b5bfafafb6a86",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Bowen/PartitionBounds.lean",
+          "source_sha256": "227d6bd1ff9565295b1ddfb5def125876aac4d4ece4cfe32eb3666edabc6e083",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Bowen/PeriodicMeasures.lean",
+          "source_sha256": "163f11c8ae75ec848cdd34e2ef987cf8601d9b4ba587afec37780f906027439b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/BoxLikeMatrix.lean",
+          "source_sha256": "f39f20f4871a4cd842f01967f980d7900e37a4039e08b7e7e815947712ce5cc7",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Classification.lean",
+          "source_sha256": "53ca8ae836215f45aa79a81d34a96c8408d78972e2ee5526e854e3db9a712556",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Coding.lean",
+          "source_sha256": "86fb31847caeb4e7519a9128bafdd01a81cf4c01eeeb0b88e5bd0e69b3798e0a",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/CodingTopology.lean",
+          "source_sha256": "ec091c6b290d073e00ce4ac09540a091afb1186113e418fae69c7edf9779d60a",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Conditional.lean",
+          "source_sha256": "4c168ae061195ecce0b53ea4c473ac29afa9519fcb98a13e4dd2c2cc94c4a3b7",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/ConditionalLemmas.lean",
+          "source_sha256": "74576f6834e389c90d0c3f403706be0473f8a46bfd91e5845b73ecb86577dea7",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/ConditionalMeasures.lean",
+          "source_sha256": "c8dc2a6527f95c1d1fb6f592c9ccb7b5008d019e69b8075309b27cbb46ec7f88",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/ConditionalTwoWays.lean",
+          "source_sha256": "415136c5f8b7e6a22040c140f7978fdb57e38782c3fe2655c621ecc3953cf893",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/CylinderEntropy.lean",
+          "source_sha256": "bfa8e89d425e3871ea92c5cd91760fc740a50cf2597a60127f691f0bf08dc1d7",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/DimPartitions.lean",
+          "source_sha256": "afe300ecb75ff81097798d81bce41b277b8bf6b98fba118c0a8558eb507f0d12",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/DimensionFormula.lean",
+          "source_sha256": "c1433490efcab371ad4dbff49270e22ed4b4f0fcee9086e370efa7e2f937e2ae",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Entropy.lean",
+          "source_sha256": "b2914566cebfe067067193dd4791468df93953042183ce8d956719f0213a4fdd",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/EntropyEqualityEndpoint.lean",
+          "source_sha256": "ec6ebbcfb7383e8c5cf13fa7b4645f03004c538f3198f130b5ecf826f38a8eb9",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/EntropyFactor.lean",
+          "source_sha256": "87d99d132c9eca4e928ea7d067c800503f87143022005c266bd248dbb3cd6da4",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/EquilibriumEntropyLarge.lean",
+          "source_sha256": "ac05b0a89fcf2b66f022efe439df1e4d33d4429bc47ae5117337f61fcc3264f2",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/EquilibriumEntropySmall.lean",
+          "source_sha256": "9ad4722c4eb4011f2a8468a9886203e1233193b0baf2118bff5813cbff72e5d3",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/EquilibriumExistence.lean",
+          "source_sha256": "d6a7ccd95ec7ef1ed5b0dfa036a92c66b171fcb789bddd4f4bd3f0f83518efae",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/EquilibriumGibbs.lean",
+          "source_sha256": "f571df4cb3f54737708a1466090c568a407724f74ba0f5b77ce779bd36a3e529",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/EquilibriumGibbsStatement.lean",
+          "source_sha256": "bc62d7ccb200b70bfe7b1b087df43c0c1f0a753b5373df6aaf0d5b21012a6a43",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Example.lean",
+          "source_sha256": "0b5e42b9f3d306713a1f793f93f843993cdd1cc8d78ffcd045cf1a7b1083d845",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FalconerBound.lean",
+          "source_sha256": "6ca0f1082e03aaff0a82d2f76afe2f214677e70f85741df58ccb1794a3599c2e",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FengEntropy.lean",
+          "source_sha256": "38f23471210370cebffb18d501fed0cf37c7a8fbe3daf76d6c3041c9d2843c41",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FengHu.lean",
+          "source_sha256": "095037f4d1e49b305cad9afefe817f8d9ab3b8bb00acbc8afab71d62ca319e72",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FengIdentity.lean",
+          "source_sha256": "c1519602e7245ba310435576fd3b31eb8682d0cd3d45687d6dd2fc1456d535ee",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FengIdentityBar.lean",
+          "source_sha256": "71064b9816f43c84b35e9024ccbadaf9353bf461cbba6c2828414951ab2cd28a",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FengLedrappierYoung.lean",
+          "source_sha256": "1caaf564289977cc56992509be2e8ace7b2069d3c929732a99a45d12555cde62",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Fraser/Lower.lean",
+          "source_sha256": "dfb32c7496b5da10de6dba5d5e7e007ba2a2f2951cf27325df0bd7d649ce28a4",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Fraser/LowerCover.lean",
+          "source_sha256": "cea9727cea503a5a9fde99b6651fdc2da4d077e059e5a0ce500f8603be5275b0",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Fraser/LowerStop.lean",
+          "source_sha256": "b7ef180d47d82d950a7309e283c778c16bb5267c1f2126f364185e0562e0c505",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Fraser/Main.lean",
+          "source_sha256": "b1dc4c6829b16f9b13bc14613bf18c763a3bde9045b716870334519c68bd1792",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Fraser/Upper.lean",
+          "source_sha256": "904914a388fa075b0bad6a4d2b3609e2a9f596706e9eb9b03b074ab5699cdc4f",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Fraser/UpperBound.lean",
+          "source_sha256": "6c8f0825afbd1d8874f9141cfccf40f9281e98c23a289b6c91ca82a759293180",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FraserChain.lean",
+          "source_sha256": "03be287d0eae57570793802e76892bf774d50f066fce60aab2dcbd8d7a3e27a1",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FraserJordanJurga/Decomposition.lean",
+          "source_sha256": "bda1cec80e5710ce5310aea9108a19e3afd2e90d29be420f4671fa78b837e576",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FraserJordanJurga/Gibbs.lean",
+          "source_sha256": "ef9753c475e6ba36b8a968f572b95b4cac1f68c0d6bf317b9ed6c082f9205122",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FraserJordanJurga/Lyapunov.lean",
+          "source_sha256": "04756fcdb28a61cc99d9bea6416b538d75806fc2e366b22aeee01eacd7f229cb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FraserJordanJurga/Main.lean",
+          "source_sha256": "bd8ff369f4a940c9e53a9d57da3a0c2b09858a67245de6d3c5d3d5c3c3c08f22",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/FurstenbergKesten.lean",
+          "source_sha256": "111179561030fccf9640416765cfbf7c5fb06547b43b1aa61206b3a5d27c21b8",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/General.lean",
+          "source_sha256": "894fd6e86a7c5a4643102c47255d3fe85764e1678b572df23858eb1ca88f530b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/GibbsOrientation.lean",
+          "source_sha256": "c9f1391e7612c0baea31aa3a0c55b1571188c668024bd3059d675d7f369c093e",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/GibbsProperties.lean",
+          "source_sha256": "53d52efad3172d6229a0079edd5edeeb5552592cc5044527841f4a9e5af82411",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Grouping.lean",
+          "source_sha256": "faf5b13a382c1757f3d86803facfea6663516549c1a0f65f9d13de5fa223dab4",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/HomogeneousSubsystem.lean",
+          "source_sha256": "4bd0ee31e733c32150bc738598f83c57ffac2116d6a5ecfcabcd8a5fb2ae17e9",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/InvariantMeasure.lean",
+          "source_sha256": "90a0d3f50e3efc7ccf4cafa424c6e0a81da85f04fa71fd055eba9e18270eb3bd",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/InvariantMeasures.lean",
+          "source_sha256": "3fd4c5b312d10390be40b48ffc628b5290730a2dc58d06db9cf7bb743dbdc15e",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/IrreducibleEquilibrium.lean",
+          "source_sha256": "2d618bc473f54082b3d5a3edc8c5a6146ce95c3198c4045299d159fcf3eacaeb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/IrreducibleEquilibriumTuple.lean",
+          "source_sha256": "c5b76e51ef7edc4931dbd02896c3377cdd40106840765ca9d5cf6d865bad8603",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/JordanRapaport.lean",
+          "source_sha256": "3a6263f8ef1e4f2bf200b4ad0c9ae39d6fb3760b9b06b01690609a256d8196b8",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Kingman.lean",
+          "source_sha256": "0e7092d6a636cb7bfd34adc903e17ab1065e3a9c4b330d12332e23e8fab9d514",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/KittleKogler.lean",
+          "source_sha256": "796c906a571c48aaee044362f8281c2ee105bd4be3c562640f9faf3a2785e517",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/KolmogorovSinai.lean",
+          "source_sha256": "f3bf994fb0a0440a6e8b42dc40f3d356db30f5b7984c67f6c701b1e003ad9568",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/LebesgueOpenSet.lean",
+          "source_sha256": "e464e820b3e68c6b0aeb2ef48e3723c8604f4fd2b91580ca2b5bfd0fc7f62d1c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Literature.lean",
+          "source_sha256": "989292ada019031c06632f22fdabd077d0fca26345b2a956c37183a01b865b60",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/LiteratureFeng.lean",
+          "source_sha256": "b6d60ffecd4086a4227a598915b954b3d13c25b6036d77b39acb8c4de125f7ee",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/LiteratureFengKaenmaki.lean",
+          "source_sha256": "087198a1ae8115a3d804efab41fe129d688e85f5d3ea9670e3ff4334bce1357f",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/LiteratureHochmanRapaport.lean",
+          "source_sha256": "aa6d65495305d0e45a312e9bab3786f65f8c944de72a022d3683ce29f9a6645a",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/LiteraturePlanarFeng.lean",
+          "source_sha256": "28133ca69c437bcece58e3b2101aeba67f229c545f010558d13ddeea7fd89067",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/LiteratureRapaport.lean",
+          "source_sha256": "6cfdb7ccd673fc7ae8edb4c9399032a6cd50440eed6ca57f952d842f1f679a62",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/LiteratureRemarks.lean",
+          "source_sha256": "3d420ef7215fc63b2ab6d539ce05916afea46ffc0655d499f95cd01707118185",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/LocalDimBounds.lean",
+          "source_sha256": "1b32b9444509be7a5305bea9213c98cb585de35eab5e47a4ff1ee8dd389c569b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Lyapunov.lean",
+          "source_sha256": "39872b3ac57636cf587e96a0fab157c474a7acf09fe1742331b2de3f7c178e34",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/LyapunovDim.lean",
+          "source_sha256": "beebe2e09bde889d12120f680547924464661ba3c745bc242c89e07c080738ca",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Main.lean",
+          "source_sha256": "59e7f8c72120a84cdda27b825978c1dbb8f8d3ce01ab2ed2fa7281699037637b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainExtended.lean",
+          "source_sha256": "500da3b451310339d93a1e60d646adf3ccf1633a906868c8bda96346a08c9e10",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainOneFull.lean",
+          "source_sha256": "8ff97cfcaaee0a9aba0108db79e79bb2226b8b6cb62d8407468ce0b79bfebcb1",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwo.lean",
+          "source_sha256": "a0ac013f56a4d8966b15e17ed5a98374d457be4b26489ffeb9db806fd7f30ba7",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoEndpoint.lean",
+          "source_sha256": "137a0aac4f3b822f9e272a810227bc38e122515465e67ef31c48642eede67912",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoFree.lean",
+          "source_sha256": "59fe1abf3e1f46cb7fa9c6992499d9fbd81bb859cd93d3c96e566df46809573d",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/AxisSeparationSubsystem.lean",
+          "source_sha256": "c74188ed9cf9cd83531be1187c99ecbeeb6c1d68111b22fe8b898ad020a60646",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/DiagonalSubsystem.lean",
+          "source_sha256": "51cf500d7608ee8e9dba4ccc94af84e7f35b633d0d6902527901f0d69ba11deb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/Endpoint.lean",
+          "source_sha256": "ef3ee5f0c1deea7479dcc3d9d4ba01f34e0e7b0ad6bd125aee0abcb148a77600",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/EntropyThreshold.lean",
+          "source_sha256": "bfc566b1cfdede67e54f60f89386358f9f168d44d1d2c5c97f29b35743a68a57",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/Full.lean",
+          "source_sha256": "68077dee4743f778ec1e6ffd238bbfa97c6d6f97b6ae9ef9def190a11c23475c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/HomogeneousAffinity.lean",
+          "source_sha256": "b855db96f0dcaae07abd139d048777aaef75b89dedf3d3fbf091d6f4d3e5fdcb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/OpenSetBranch.lean",
+          "source_sha256": "0679e3c4cc73b8021982a72d696c5ea413ae4b14f91bd41394b9c8696ab57ffb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/PastIndependence.lean",
+          "source_sha256": "6ced2270700ca8f304305b2689ce9dab92040178a5f27785905ab9bcfd310f4b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/Pigeonhole.lean",
+          "source_sha256": "e19f755476657759cf67151d21080665349ab20cceb4fda346b44ee240f52b4c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/ProjExpBranch.lean",
+          "source_sha256": "a2a8f25e7474361d53813485dd94cd5e9f44802d0eae31418c90d55f67bff5fd",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/ProjectionDimension.lean",
+          "source_sha256": "9c91c370305c26a1b92f4dbe28380c5138ccb73f3631f1a53cb50311984d0fdf",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/ScalarFeng.lean",
+          "source_sha256": "159dbdb8aae7847917a017d3c0cc8594ecab673a8d33efe2a6abee44f8a7e65f",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/SubsystemEntropies.lean",
+          "source_sha256": "a8c3f0c860f225f0947d12079e6313e9a20b2b26034433defbebd0d0a2c22a8c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/ThresholdBound.lean",
+          "source_sha256": "6857d67bedf4217341cf25adefd06f9541ad7288a6aa94caa9c1924d709bb3eb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MainTwoProse/TypicalWordsSMB.lean",
+          "source_sha256": "baafd6d461ec2e2d6dec5f030d98abae212f2362ae042fc57b79a87e7e94d32d",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MassDistribution.lean",
+          "source_sha256": "42b52c604f26465cdf0c0b7c7e57b42b5d5321bcf675226afb8f91e47a454df6",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MatrixTuple.lean",
+          "source_sha256": "71908058f1ae1527afe1aad6186869793d24d13e40f438c141d8e1e2dd11bceb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Measurable.lean",
+          "source_sha256": "5fbc958b500ca76e1764f7dd8812e17b340feb3d07016ea044e2c9ce7d988569",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MeasurablePartitions.lean",
+          "source_sha256": "19dff64fc7bc039adb1c9af4372ffe24ede4e46e844cb2c343f2324eb08aba69",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MeasureDim.lean",
+          "source_sha256": "9464d74ae74816ecf231d1a181f369ecd945ce52106f2174b7adb7125c795ee6",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MeasureDimBounds.lean",
+          "source_sha256": "6449de570d8936e1f287dbaff51ef55a948f4d50916839f5875787a43fe4b05b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MeasureDimDouble.lean",
+          "source_sha256": "450d8a7e0cb14b82a915d3646757b9b5caa4fc87b757b0ed8c20812b90d01eec",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/ModifiedAffinity.lean",
+          "source_sha256": "8e628c71b004c630bc3fe5eba293e9edc7b7dfe3645117c6fdc177ea500baa71",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/ModifiedAffinityEquality.lean",
+          "source_sha256": "ebbe765c4cec52d8f91d1c89ea147c05f6e1562c258636ef20da140f5f2994dc",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/MorrisShmerkin.lean",
+          "source_sha256": "12b7a5cd29b6a84e55fda88652a61f80f49d6296102f5eab51f650b922b7ce2c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/NaturalExtension.lean",
+          "source_sha256": "a288b836515b5bc2abae05b46830a431e7430ff066e29df54b5c19488829a8f3",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/NoOverlapExample.lean",
+          "source_sha256": "ef7057560e8242382ac10521801d639c8fd9ac96ea2ff828cf7e28d029a0f072",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/NoOverlapExampleFree.lean",
+          "source_sha256": "39b5d78a2e6ce0c96e60a5b1dd124ca6fc5ce1149cd118a42054b0b04e2d5ed3",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/NoSeparation.lean",
+          "source_sha256": "2313c9a16dfecc7ed44b42d549a5be45c7d7e344d9928eb474cd04e8b910c27c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/OpenQuestion.lean",
+          "source_sha256": "6ca41e1f080a2ae346b03c5ed29a1926c4c4f43cbc2531539d80e62068611f91",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Orientation.lean",
+          "source_sha256": "a8971031eed5db45367ee2b910834c42c098b54a504a2f143e86abe9d9505046",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/OrientationLift.lean",
+          "source_sha256": "70df9e456866a5b534c44f38e93be78f62d412eabea1c280d3985555441d3a0a",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/OseledetsBridge.lean",
+          "source_sha256": "27af05f2ee0d1759d531c6ac8d4b6017f8b8d3b40eb87f1bfcc7e9febad3b058",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/OseledetsFiltration.lean",
+          "source_sha256": "f2f64019ec9ac578a55d0316a428d5bf8e67febe16e25ed10dd2fb15c704c857",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PackingDimMeasure.lean",
+          "source_sha256": "71cff18eb3bf51bef2e5f01a469488749d52c6d841acf00cd14469e31880f4b1",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PartitionIdentities.lean",
+          "source_sha256": "671bfaaa450eec39df00169db71a449b90515f84ba2149e307c2fe6367af9b83",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PastEntropy.lean",
+          "source_sha256": "51484482d64964262238694752e0388c9be3c5acddc3329455b091de20a74dc7",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/AffinityDim.lean",
+          "source_sha256": "51a839595ea60ded18fd5979740533559b145dde29b7be53cbb66d374f85fa76",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/ChangeOfBasis.lean",
+          "source_sha256": "00e8ac98583fa5f59c70ff9b41300ce2e29b4e664feac3740c3f1df422f3d779",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/CylinderEntropy.lean",
+          "source_sha256": "e9e79792bd54e281d49c110b0a6f5a906a905498d77bf77eaf3263c5dd999f58",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/FalconerBound.lean",
+          "source_sha256": "7c654b9828bf58be132205432d0a02b3584c9352e00c0b90b4d3d9c73c68c28b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/FengEntropy.lean",
+          "source_sha256": "d4e2381209b61dacc5043673e743b024df98416d7fd31f8eb5c2529fddfa114c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/FengGeneral.lean",
+          "source_sha256": "ffa980c1a86db490c6a9fb80ba294d787e928433d64f4ed1bcafaf188c04d73d",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/FengIdentity.lean",
+          "source_sha256": "7798b9e4fdb7381f97539738e9deb9351bc51a52ce4b4c249b50f2bcaa68b935",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/FengOne.lean",
+          "source_sha256": "84fb60a1299350ef0d9ef66a4bd119125ddf0a04c075780ec31fae56eeb29bc6",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/FengPartitions.lean",
+          "source_sha256": "ad11f0ca0799990216808871c26aed45b507a823893f8940fc44fb6a33c319eb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/Lyapunov.lean",
+          "source_sha256": "3f72767cdedfab02e3b8c65f55aaacda93cf28212ef690bb189ed62fd130f03f",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/Oseledets.lean",
+          "source_sha256": "72074f2ab72e258ea501072557e8e2139383431955940ec9f08560f6e38110f1",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/OseledetsChoice.lean",
+          "source_sha256": "45f8169bb446fef10a1952efb87034abba2e36d967509a5eb9d5650b46899ad2",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/OseledetsTheorem.lean",
+          "source_sha256": "95dd5a3cab73a930c7d8e0cc37c8a33b9cbc35f0b3608a268a404c2862314350",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/OseledetsTheoremDirection.lean",
+          "source_sha256": "3103cb1dae3280eb34a3d398cb961ed9b88dfb35a48e0f3bd902176b8799da64",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/Partitions.lean",
+          "source_sha256": "a4be1da547a0d6ecdafcf4a931dcdf9921e0fce0c7a23ab4790ad15caaf3b03f",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/Specialisation.lean",
+          "source_sha256": "72bba2698923d84463fbb62464cf761508f4b1d20b3cd60bf3f3835b634b38fb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Planar/System.lean",
+          "source_sha256": "5903674b4969935397e06f996c9b20d1a9496cb729d952dd4bc6d454fcdc3382",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PrescribedExample/Defs.lean",
+          "source_sha256": "f8c9f403a53abfe8839b59a07e020dcb19eb6e17286a082926d2ad5a65574242",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PrescribedExample/Dimensions.lean",
+          "source_sha256": "03a340aeeee8a828c8cfa51aa4a2e729dbb3b26b51e09c2e3375be246e732686",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PrescribedExample/Geometry.lean",
+          "source_sha256": "f7610a15b586a9fdf5bab860e232c7f8e19db7aa77658a01a449f14b67d945a2",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PrescribedExample/Main.lean",
+          "source_sha256": "c2e7c0b6b4a2882a0b6620089a5e0804895de3a044bb9c3ce206b2d1ca357a1e",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PrescribedExample/Measure.lean",
+          "source_sha256": "b01b0c095c7cd84fee6a4a7ac2a6606b3e5caea9e69fe8946556b3d32ea33247",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PrescribedExample/Parameters.lean",
+          "source_sha256": "41ea0d6387773866845e368797ee6107262d6499cfe29f0ae8b39ea60e3729aa",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PrescribedExample/Pressure.lean",
+          "source_sha256": "d1f77ba86062066ce940054a79c42404c43f51e3a5070d71aa2bdf7eabf85eb8",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PrescribedExample/Separation.lean",
+          "source_sha256": "72485b15775556e243eff7448d704fb6547d25363eaa833d4902a40710c5c537",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PrescribedExample/Translations.lean",
+          "source_sha256": "dec54fd24c41571752c861f28788bb26b61988e6d486db346ac26f243c9e137f",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Pressure.lean",
+          "source_sha256": "99e561c503a44601eb8a599717a224d01f3d6aa5b404f6793a365f3118df719a",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PressureLarge.lean",
+          "source_sha256": "e4adb9ae21497c6332a5a464824934de944e425fc9fa33de3a2463e87e7bc03c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/PressureZ.lean",
+          "source_sha256": "795a851fd48fe9e0c263dd8b626dbba40be673e0ceaa5ae5f582b8e9af647560",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/ProjExpNoOverlaps.lean",
+          "source_sha256": "bf14e4bd99a29118f9865db565dfd230695fe04a894ac56d9cac9a55325d82eb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Projection.lean",
+          "source_sha256": "d41def7119fffdc4aa72e7165eefc889dd5a844c92fefd0b6db37c4de01cdbf5",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/ProjectionLarge.lean",
+          "source_sha256": "70ad710b0cd1da7138bc7dd3590b509657354813e9f816c79a3d94603b412b89",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/ProjectiveLineSystem.lean",
+          "source_sha256": "9663ce9a65120c5a68964ca2d8883cb93fdc46bc9cde3b00d0233f5ff735690b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Proximal.lean",
+          "source_sha256": "ba98d13fc35f716c3929c59a7caa526ad1bd86aa209a20237c16844cf141c9f9",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/QuasiMultiplicative/Defs.lean",
+          "source_sha256": "faa2ae3d58dbf0e32981afd68645063794a566790b86e1a0c1684ef60c471662",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/QuasiMultiplicative/GibbsMeasure.lean",
+          "source_sha256": "c7388b570d52472a77c9ce8ec2bc4a0d6e273de55772fecf5d886b62fe161415",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/QuasiMultiplicative/GibbsMeasureErgodic.lean",
+          "source_sha256": "80aba7f14aa93ea5dbf1f156784671219376941f4e762c00e97d9815b8749853",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/QuasiMultiplicative/GibbsMeasurePeriodic.lean",
+          "source_sha256": "c5a20f8101bbe680ed9358711e511e35dcfb0d80b6f304e185ca8843fd12acb6",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/QuasiMultiplicative/GibbsMeasurePressure.lean",
+          "source_sha256": "7be14b50576ddba4dc1cf2eee8dad2894a2b6b9a1f683412cb7df1bf31f193c7",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/QuasiMultiplicative/Irreducible.lean",
+          "source_sha256": "556917e9c63d84b1fc406bd53d461991f3ac430088f34f47f666dc188bf3f285",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/QuasiMultiplicative/Main.lean",
+          "source_sha256": "28f3c1628282b9c5a85be2a88dd7670a56afe295ce76ff8daecf4a3c89d73d99",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/QuasiMultiplicative/Uniqueness.lean",
+          "source_sha256": "970066577a9d4047a778264361a52edff45dccef75d6ca05f4bd1a5438adad6c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Core.lean",
+          "source_sha256": "639514c024c49e031a9c9a49e9a694d7cd0bf7063f9790cee74b598218ec908f",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Defs.lean",
+          "source_sha256": "4cb6cd4ce99ad0f6c9485ab6fda9f7c10bddb1185576c13eaac37ab72b47e993",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Diagonal/Iterate.lean",
+          "source_sha256": "16e2bfba5b9a5d399de73caec544fff724bc037d5080901cbd726009d8f4dfa0",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Diagonal/Pressure.lean",
+          "source_sha256": "ea230c492a31ee1e661bb515825323c6bea25b8baebcbb2f7cc92fc917dca96a",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Diagonal/Reduction.lean",
+          "source_sha256": "5fc91fa1e5f3f6153130e087a7e156f2f11eff0b86ecc69da88d86bea3520165",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Diagonal/Weighted.lean",
+          "source_sha256": "48efb6fb71dff8d5822012ac17325bddbb9813a8c7390b586ae6dd94be6faa0d",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/Basic.lean",
+          "source_sha256": "07d1689c4cdf89b488515034efc741849e10afe8c3ae5e16bc6766e0cd56e61b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/Conv.lean",
+          "source_sha256": "3c4b204f2786f870d21505df121f967647a5f7f37cb8cbe292a18d0e318e31a1",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/ConvBind.lean",
+          "source_sha256": "e4175cd1f82acf2a68345e02fee2c22f8e029ed0da591ad72cc0c02eb2d8c63a",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/ExactDimEntropy.lean",
+          "source_sha256": "d1078bfcb23ec57da0cfba5ce4009c48f27b79e024cbe6f9874daa33a2ba25a5",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/FiberBound.lean",
+          "source_sha256": "7dd5ca1e65396102f4681fc52568aa1c363ced1daeebdc357d8750af7ba3ffbc",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/KV.lean",
+          "source_sha256": "2b46112469092b78faa1d5c8c790e1abfac85bfebbeff2e74e4ff8b7815d19b5",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/Multiscale.lean",
+          "source_sha256": "916e07d8b7498021107c372ab753ca7cc220eae851917b35a17c33c365e0534e",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/Proposition.lean",
+          "source_sha256": "496bf018bfaf3168237e4a80f581328a451601181f1b2e4a361197ef3e187ead",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/PropositionAux.lean",
+          "source_sha256": "649026c455acddaa73495699d4b834e8cd7f86cd2a8b4e56c6957d87deb62f57",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/PropositionStatement.lean",
+          "source_sha256": "0fef5dfa5210472a1623f45f643c344c707c2d72375746b398201a9287486553",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/Rect.lean",
+          "source_sha256": "585c323d85808a4199ed196ebd9702629d8a284083a4a3aa56aa404a9fb15102",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/Slices.lean",
+          "source_sha256": "f61b1d43d41c75b3340a6776b01edb5a9a7737151279b03b22c1effd84bfec00",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Entropy/Variance.lean",
+          "source_sha256": "29afe9c1d4dc887a95c2e1e5869d2f42cd31091024ff51e63c133399ab608e31",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/Glue.lean",
+          "source_sha256": "71c62eff76148c15936a2f4f0120e3180d5378f0d4738b18e7c2d96083b28d00",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/SelfAffine/Asymptotics.lean",
+          "source_sha256": "00671b379e9ded8edde0cf918affac7485dd133c507900222aae223d465a50a1",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/SelfAffine/Basic.lean",
+          "source_sha256": "57438ee914db944674b159a90b47c5849efa5bb6704bea2272aa3443abac9b2d",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/SelfAffine/EntropyIncrease.lean",
+          "source_sha256": "270ac4592925f579b8e2a9823d561d82022ef9a53614e1dd4dd12e54d6b5ac5f",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport/SelfAffine/Main.lean",
+          "source_sha256": "050f803976604074fcba22db43aeebc1c2af88c20773d7c19652365e11d6b5e6",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rapaport.lean",
+          "source_sha256": "c48551d1f4ebc7382c2b306c454fe0c126baa92a86c343f902f5509b14a101af",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Rossi.lean",
+          "source_sha256": "e3c8ab1d56755d87302be2fe48f8ae65901cca2a811c9e4f4a0de69285604d8e",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/RossiBound.lean",
+          "source_sha256": "5bc170232ad0bf939c53d3addc0e9a7a2bf74ffe567b4641063b1fa65156493d",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/SMB/Maker.lean",
+          "source_sha256": "11e8317c963a99f33a4a4256abb4921b4e99b622f40d4cb9c47f807df373f37d",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/SMB/PastInformation.lean",
+          "source_sha256": "596e361a1a9f75a1c2ed9ba1b58a3f38c1178fb47354f568401bfa6b5f2583c5",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/SMBStatement.lean",
+          "source_sha256": "8a0d1f6dbe8bc7a04cc759fa675d2b7723e74d8a489a4ec56691c24c5ad15c0c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/SecondIterate.lean",
+          "source_sha256": "9da20541f66c3e383e0256272169e005bb35cb9a7538ca9cf98d20b43510ac9b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/SelfAffineMeasure.lean",
+          "source_sha256": "fa1ca4efe6daa35cfac4287176d4ebdb2349f97ab97b4a886541878a1c71a323",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Separation.lean",
+          "source_sha256": "723040606dbd94026aa014ba8282fe53b187ae5a8dcb2f1c9c15af932a9f0b1c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/SeparationConditions.lean",
+          "source_sha256": "7cf00396025830ca681b58ff4092c594f4d1a8cb374bb3362421ac20fc3d146b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/SetDimensions.lean",
+          "source_sha256": "d3b0bffbd3ea4969830f14ef15b20cf2b91095cac08a2b6de674029345738623",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/ShannonMcMillanBreiman.lean",
+          "source_sha256": "af9cd3911c51d1c144b6ac7d59e315e0cbd17d1fc47f19d9ecfa3b30b70aacdb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/BSG/Basic.lean",
+          "source_sha256": "36031ea07d1edcb0f182ef89bbf429609c95d4e15d11d382d7a8efe6ae055e5e",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/BSG/Core.lean",
+          "source_sha256": "368fa55ff11332f63e60359a0c61af63bb53c2fda3ecfde95c7583090a18c79b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/BSG/Graph.lean",
+          "source_sha256": "23a10c1150753b757a6d02f7d50a7c8b807a89721c70608a4dfe6d13ad086b45",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/BSG.lean",
+          "source_sha256": "3860145c68c4ffc2eb425f6cadb43cbcb82b3dce5e6d39dba7a1c5a1dc7e81a1",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Basic.lean",
+          "source_sha256": "3524d2522707ffe3f12555aa45710805104e81a0aca065f0913f983fef95ebca",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Bourgain/Cor.lean",
+          "source_sha256": "9d5ceae897593a53d306fce77bd9e7d767a4a2b0c58e83a08a75339b954bda3e",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Bourgain/Main.lean",
+          "source_sha256": "34b8eefa574ef85279e3ba0a89dcadf8245ec3abac41068a2e2865f90c6a61d1",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Bourgain/Measure.lean",
+          "source_sha256": "3c98915592efcf62c43e349ec0949da441e31982401374bad9616dcb08538da8",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Bourgain/Prune.lean",
+          "source_sha256": "3cce361a3412333b459314fd7ceca5d369abf34e9a594ee8cd1a6d51ab3b1b68",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Bourgain/Tree.lean",
+          "source_sha256": "e89180a6a217359a5e3f9d64d1ff6342a54171e60c37c52a61679e058191b2f6",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Bourgain/Unif.lean",
+          "source_sha256": "9fc9832be85dbeb76c490e13f6092a8557eac505a56b0cba26f8cc6dd6272152",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Flattening.lean",
+          "source_sha256": "11b1eb9db554816169e6b48628833a44d9d7b283d469648f22c5a7c75117c153",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Inverse/Analytic.lean",
+          "source_sha256": "54b7b70761f92a08db590b6dd3ed5e10cb51c0d8d8e60139cfa61339a4a22f84",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Inverse/Basic.lean",
+          "source_sha256": "583359426444f7ac6d7baeba727444e73f5e362ea86feace0387ec37b2a51e83",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Inverse/Cor310.lean",
+          "source_sha256": "1668199fc67effb21f87c781d129e66afb22c443577820f640668d8b4cf613ec",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Inverse/Main.lean",
+          "source_sha256": "fed46d4448269a00be0c9b1e5d2b59c4dcb7fb6e75394ed22259dcc6027320b3",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Inverse/Trees.lean",
+          "source_sha256": "25e0634e4904654741858369df2ed5190145a23b22aeef5268302253e9ac4037",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/InverseTheorem.lean",
+          "source_sha256": "fa7f835083c760052ce855fec183b4768890f47ce1ba8615e5d4aed8858f00a6",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Limit.lean",
+          "source_sha256": "78001cdd17e1d81c4ea99867c0a95b40ea72856e1035215fc3f7d65fcece42cf",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Main.lean",
+          "source_sha256": "123d335b2383f6cb029d1e83b67a7b215d8c693bdbed3469fcb4523e8f7a578a",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Prop413.lean",
+          "source_sha256": "634e82ea328174d92db36fff4f5c703a82a6a86a8c146b88f990016740960e3f",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Prop68.lean",
+          "source_sha256": "cd8abd6e033d94e3cf64e04cf2ad7617fc7b2e13d564206c73a69ed99d61b7f7",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Section4.lean",
+          "source_sha256": "cd8d8e544cf7602d8f4a63d7145ea615c7064725ada95b54c2604a5939913dee",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Statements.lean",
+          "source_sha256": "261841aae4cedc4448f76d1942325ecbb8d6c27713ee5e333386f89eeecb6c30",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/TauTilde.lean",
+          "source_sha256": "f7e830aed00bb4bf1464a2becac6cd7712ce6a45a249fb4aa2b7e7c81858d0b5",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin/Theorem51.lean",
+          "source_sha256": "2b285843f1726893e4f1539d6719bb423ad36c2e1593949900e282057cc44904",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Shmerkin.lean",
+          "source_sha256": "873889ea73cb00b2b5de36b79ff0b0816da9c936fdb63dea10f4e757317997c5",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/SigmaMeasure.lean",
+          "source_sha256": "da504450ebf86dbed74274d0b6e66d662dc31f591cae8a474233d16bad7128ce",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/SingularValue.lean",
+          "source_sha256": "d1eb0ba5c6e3d89ddad1d17967ec0d5440de2d6303ee9bab4fc2662f9eff2f60",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/SlowAxis.lean",
+          "source_sha256": "e6d337565c381bc180e29d445e3128f969b80446fa060af7d1a0ffa205ec748c",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/StrongOpenSetEntropy.lean",
+          "source_sha256": "0abe3a996ee05ed36258297f4fe330c3403f27603a85278dcb121c95504d09ab",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Subsystem.lean",
+          "source_sha256": "4dc348b52ecdb04c7ed0cb98289578f2fabd49ad7f3a00a3a0c4071489ed38aa",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/SubsystemEntropy.lean",
+          "source_sha256": "d62dca3d9e2ddfa07a4bc045daf62185a2e5dfc1aead7dd03c0a266d77251da9",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Support/ConditionalInformation.lean",
+          "source_sha256": "eab0c9941498e5713ebad5e27cf6be7eead532b599cfcb27b59f395be5bf755b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Support/GibbsDoubling.lean",
+          "source_sha256": "86e275a876748afd3f0aa96cbb885cf3211c9e35bde44d74e5adefa8d50ed7be",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Support/GibbsUniqueness.lean",
+          "source_sha256": "1bc3820a0c9f5a369e4beb81f7a54bcaf3276bfe611940f126a32a013b58b261",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Support/HolderPressure.lean",
+          "source_sha256": "17ac5f15dc361731bb1617132a6c2ec73a6f6cfa9e23552019f92c946ddd57aa",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Support/IntroductionClaims.lean",
+          "source_sha256": "c13f05c6901538c8699dfb9d1f111bd4672c6150fb85e31013e17d5afe9a7221",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Support/OneSidedProjection.lean",
+          "source_sha256": "5f6a9a1bc677278c967a6ef23c5c1dd0b431364a4477d7e9174ff72203884513",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Support/PlanarProjection.lean",
+          "source_sha256": "73d3a6174a167e42290e00e57777ef1013b08e2ee393289fa3db2bee0b4de6ad",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Support/PotentialsAtTwo.lean",
+          "source_sha256": "58c5c0e3f2a4d0ed6940df375166d13a30a623a5b28bd4d3f8e30b8d8a84f30a",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Support/PressureConvexity.lean",
+          "source_sha256": "29c19668e0c15da183a8352475fe6695256788f3f3b51f195faaa0d954ec4e45",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Support/RelativeEntropy.lean",
+          "source_sha256": "61540865de576c7ee1209a64ce9dece56286c13601019824debcd3bdadbf721a",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Support/SubshiftMixing.lean",
+          "source_sha256": "064293b82a990c75ff7a73b75047d85705f5a3e2abfe6f8237a1f84d593473b9",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/System.lean",
+          "source_sha256": "7de57c7fbdf633afc84fd0ec37aaefdc9225187f25415daaf4011a09c76cd342",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Thermodynamic.lean",
+          "source_sha256": "a315c7629f3be6132b60c6b0bdddac20a43c7f6146043751ac5e835d943ef0cf",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/TupleEquilibrium.lean",
+          "source_sha256": "0356562e9397ab8308ad281d7cc7a23e32d7af286a4c70b306c69884d39a169b",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/TupleEquilibriumExistence.lean",
+          "source_sha256": "3d463f91824272af2be22cccebe2165b82b014b0b61bab0b733fb8b7204a3463",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/TupleEquilibriumLarge.lean",
+          "source_sha256": "83a45382d46b26f0d5ec3ba0de97d99fcefd3e17f8ad23128ef679bd2695e3eb",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/TupleEquilibriumNorm.lean",
+          "source_sha256": "cfed6b313e26ba336127abf05e1701b8209a6f28bf994b8aff57e809fe8001fa",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/TupleErgodicEquilibrium.lean",
+          "source_sha256": "cb02be7df76bd3f769885c3e029c35f9f5b0108929d17867498bce6ba5bc3b22",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/TwoBlockNormalisation.lean",
+          "source_sha256": "b425e3e6accf81f67f27355e427946ede9694e749b27d1b05bfa8b2cce768e61",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/TypicalWords.lean",
+          "source_sha256": "56f60b8a86299eecc9523d00533147924673878bdcaced0c58d211fda69b0f17",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/UniqueEquilibrium.lean",
+          "source_sha256": "ca3762af0ffb97b210ff239fb896b7b64106e7c71b06ce40441dd612315e2605",
+          "source_state": "clean"
+        },
+        {
+          "path": "BoxLike/Variational.lean",
+          "source_sha256": "7ff8ff62794d09d1b53f24dc119b790cf5665a39392ce18e5bd441dd9b680914",
+          "source_state": "clean"
+        }
+      ],
+      "source_license_file": "provenance/BoxLike/LICENSE"
     },
     {
       "namespace": "ExactOverlaps",
@@ -3402,6 +4735,11 @@
         {
           "path": "vendor/ExactOverlaps/SelfSimilar/NeighborMass.lean",
           "source_sha256": "5598fd15c3018e6d3efe432c9524446172ca67f355ca9608837b3b8cd3ff7de1",
+          "source_state": "vendored"
+        },
+        {
+          "path": "vendor/ExactOverlaps/SelfSimilar/NoExactOverlaps.lean",
+          "source_sha256": "d28fc5b411873b37caf8d9351852c0942ca3e018ee73e04eb9f612a436f5a8e2",
           "source_state": "vendored"
         },
         {

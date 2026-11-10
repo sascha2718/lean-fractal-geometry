@@ -36,7 +36,11 @@ name = "AnalyticESC"
 [[lean_lib]]
 name = "BrownianImages"
 
-# Kittle–Kogler Theorem 1.1 dependency closure, with original options/licences.
+[[lean_lib]]
+name = "BoxLike"
+
+# Kittle–Kogler dependency closure of Theorem 1.1 and the no-exact-overlaps
+# entropy rate, with original options/licences.
 [[lean_lib]]
 name = "ExactOverlaps"
 roots = ["ExactOverlaps"]
