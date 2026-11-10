@@ -40,7 +40,7 @@ records public source revisions and file hashes.
 | [`FractalGeometry.SelfAffine`](FractalGeometry/SelfAffine.lean) | Planar affine systems; Falconer's affinity bound, Fraser's box dimension, Mackay's carpet Assouad dimension and Feng's Ledrappier–Young formula |
 | [`FractalGeometry.SelfAffine.BoxLike`](FractalGeometry/SelfAffine/BoxLike.lean) | Box-like self-affine sets with rotations: projections of the equilibrium state, Hausdorff dimension and Rapaport's diagonal dimension formula |
 | [`FractalGeometry.ExactOverlaps`](FractalGeometry/ExactOverlaps.lean) | Kittle–Kogler Theorem 1.1, the entropy rate without exact overlaps, and their 555-module proof dependency closure |
-| [`FractalGeometry.SelfConformal`](FractalGeometry/SelfConformal.lean) | Analytic systems, separation, conjugacy, cookie cutters and quasi-self-similarity |
+| [`FractalGeometry.SelfConformal`](FractalGeometry/SelfConformal.lean) | Analytic systems, separation, conjugacy, Feng–Hu exact dimensionality, Rapaport's dimension formulae, cookie cutters and quasi-self-similarity |
 | [`FractalGeometry.Pressure`](FractalGeometry/Pressure.lean) | Pressure, Gibbs measures, planar matrix classification and quasi-subadditive limits |
 | [`FractalGeometry.Ergodic`](FractalGeometry/Ergodic.lean) | Birkhoff, Kingman, Shannon–McMillan–Breiman, Kolmogorov–Sinai, planar Furstenberg–Kesten and Oseledets |
 | [`FractalGeometry.Entropy`](FractalGeometry/Entropy.lean) | Finite Shannon entropy, conditional entropy, entropy rates and generator identity |
@@ -264,16 +264,37 @@ Cookie cutters and quasi-self-similarity follow [GMT2026](#ref-gmt2026).
 | Explicit distortion criterion for strong exponential separation (`N ≥ 2`) | `AnalyticESC.IFS.proposition_1_8` | [Main.Criterion](AnalyticESC/Main/Criterion.lean) |
 | Koenigs linearisation and conjugacy characterisations | `koenigs_comp`, `AnalyticESC.IFS.theorem_1_12_similarity` | [Koenigs](AnalyticESC/Conjugation/Koenigs.lean), [Characterisation](AnalyticESC/Conjugation/Characterisation.lean) |
 | Polynomial and non-polynomial examples; local-dimension and `L^q` bounds | Example and local-mass estimates | [Example](AnalyticESC/Main/Example.lean), [NonPolynomialExample](AnalyticESC/Main/NonPolynomialExample.lean), [Lq](AnalyticESC/Dimension/Lq.lean) |
-| Dimension consequences from Rapaport's theorem | `AnalyticESC.IFS.theorem_1_6` — **explicit literature hypotheses** | [Dimension.Rapaport](AnalyticESC/Dimension/Rapaport.lean) |
+| Dimension consequences from Rapaport's theorem | `AnalyticESC.IFS.theorem_1_6` with `FractalGeometry.rapaportMeasureStatement` and `FractalGeometry.rapaportSetStatement` | [Dimension.Rapaport](AnalyticESC/Dimension/Rapaport.lean), [AnalyticESCLiterature](FractalGeometry/AnalyticESCLiterature.lean) |
+| Gibbs probability measures on the one-sided full shift | `FractalGeometry.bowenGibbsStatement` | [Bowen.Main](FractalGeometry/Bowen/Main.lean), [AnalyticESCLiterature](FractalGeometry/AnalyticESCLiterature.lean) |
+| Self-conformal exact dimensionality and fibre entropy | `FractalGeometry.SelfConformal.FengHu.fengHuInterface_of_conformalIFS` | [FengHu.Main](FractalGeometry/SelfConformal/FengHu/Main.lean) |
+| Entropy growth under convolution and local-to-global entropy bounds | `FractalGeometry.Hochman.hochmanEntropyGrowth`, `abs_dyadicEntropy_div_sub_avg_le` | [Hochman.Main](FractalGeometry/Hochman/Main.lean), [Hochman.Multiscale](FractalGeometry/Hochman/Multiscale.lean) |
 | Cookie-cutter bounded distortion and cylinder/ball comparisons | `CookieCutter.bounded_distortion` | [BoundedDistortion](GeometricMeasureTheory/CookieCutter/BoundedDistortion.lean) |
 | Cookie-cutter dimension is the zero of pressure | `CookieCutter.cookie_cutter_dimension` | [Pressure.Dimension](GeometricMeasureTheory/Pressure/Dimension.lean) |
 | Quasi-self-similar measure/content comparability and regularity | `qss_measure_content`, `qss_isAhlforsRegularSet_iff` | [Homogeneity](GeometricMeasureTheory/QuasiSelfSimilar/Homogeneity.lean) |
 
-`AnalyticESC` retains `BowenGibbsStatement`, `RapaportMeasureStatement` and
-`RapaportSetStatement` where required. They are explicit hypotheses, not axioms and not
-silently discharged by similarly named theorems from another model. Its Corollary 1.7
-covers `N ≥ 2`.
-Full citations and the precise conditional inputs: [Bowen1975](#ref-bowen1975),
+The original `AnalyticESC` declarations retain explicit arguments of types
+`BowenGibbsStatement`, `RapaportMeasureStatement` and `RapaportSetStatement`.
+[AnalyticESCLiterature](FractalGeometry/AnalyticESCLiterature.lean) proves these exact
+statements as `FractalGeometry.bowenGibbsStatement`, `rapaportMeasureStatement` and
+`rapaportSetStatement`. Passing these proofs discharges the literature arguments;
+the mathematical hypotheses of each result remain. Corollary 1.7 covers `N ≥ 2`.
+
+```lean
+import FractalGeometry.SelfConformal
+
+open FractalGeometry
+
+example {N : ℕ} {ε : ℝ} (Φ : AnalyticESC.IFS N ε) (hN : 0 < N)
+    (hnd : ¬ ∃ x, Φ.attractor = {x}) (hesc : Φ.ESC) : Φ.DimEquality :=
+  Φ.theorem_1_6 rapaportMeasureStatement rapaportSetStatement hN hnd hesc
+
+#check AnalyticESC.corollary_1_7 rapaportMeasureStatement rapaportSetStatement
+#check AnalyticESC.example_dim rapaportMeasureStatement rapaportSetStatement
+#check AnalyticESC.example_localDim_of_bowen bowenGibbsStatement
+#check AnalyticESC.example_lq_of_bowen bowenGibbsStatement
+```
+
+Full citations and the scope of the supplied proofs: [Bowen1975](#ref-bowen1975),
 [Rapaport2024](#ref-rapaport2024), [FengHu2009](#ref-fenghu2009).
 
 
@@ -367,7 +388,7 @@ The subject tables link back to these entries.
 
 **Proved** means the stated result is available in the linked library;
 **specialisation** means the restricted form specified here;
-**conditional** means an explicit literature hypothesis remains;
+**conditional** means a literature hypothesis remains without a supplied proof;
 **source assembly** means the endpoint is assembled in the original source solution
 and this collection contains the stated supporting results, rather than that wrapper.
 Numbering refers to the identified edition or revision. The citation of a work does
@@ -388,15 +409,19 @@ numbering follows **arXiv:2509.07888v3**.
 |---|---|
 | Theorem 1.4, open and dense strong exponential separation in the relative C² topology | **Proved**; `AnalyticESC.theorem_1_4` in [Generic.OpenDense](AnalyticESC/Generic/OpenDense.lean) |
 | Theorem 1.5, dual-projection separation criterion | **Proved**; `AnalyticESC.IFS.theorem_1_5` in [Main.Dichotomy](AnalyticESC/Main/Dichotomy.lean) |
-| Theorem 1.6, Hausdorff dimension from exponential separation | **Conditional** on [Rapaport2024](#ref-rapaport2024), including the specified [FengHu2009](#ref-fenghu2009) exact-dimensionality input; `AnalyticESC.IFS.theorem_1_6` in [Dimension.Rapaport](AnalyticESC/Dimension/Rapaport.lean) |
-| Corollary 1.7, generic dimension equality | **Conditional** on Rapaport's inputs, for `N ≥ 2`; `AnalyticESC.corollary_1_7` in [Dimension.OpenDense](AnalyticESC/Dimension/OpenDense.lean); the `N = 1` case is excluded |
+| Theorem 1.6, Hausdorff dimension from exponential separation | **Proved** by `AnalyticESC.IFS.theorem_1_6` in [Dimension.Rapaport](AnalyticESC/Dimension/Rapaport.lean), supplied with `FractalGeometry.rapaportMeasureStatement` and `FractalGeometry.rapaportSetStatement`; requires a non-singleton attractor and exponential separation |
+| Corollary 1.7, generic dimension equality | **Proved** for `N ≥ 2` by `AnalyticESC.corollary_1_7` in [Dimension.OpenDense](AnalyticESC/Dimension/OpenDense.lean), supplied with the same two Rapaport proofs; the `N = 1` case is excluded |
 | Proposition 1.8, explicit distortion criterion | **Proved** for `N ≥ 2`; `AnalyticESC.IFS.proposition_1_8` in [Main.Criterion](AnalyticESC/Main/Criterion.lean) |
-| Section 1.2.2, polynomial and non-polynomial examples | Separation is **proved** in [Example](AnalyticESC/Main/Example.lean) and [NonPolynomialExample](AnalyticESC/Main/NonPolynomialExample.lean); polynomial dimension conclusions are **conditional** on Rapaport; its natural-measure local dimension and L^q bound take [Bowen1975](#ref-bowen1975) as a hypothesis in [Lq](AnalyticESC/Dimension/Lq.lean) |
+| Section 1.2.2, polynomial and non-polynomial examples | Separation is **proved** in [Example](AnalyticESC/Main/Example.lean) and [NonPolynomialExample](AnalyticESC/Main/NonPolynomialExample.lean); polynomial dimension conclusions follow from `AnalyticESC.example_dim` with the two Rapaport proofs; `example_localDim_of_bowen` and `example_lq_of_bowen` take the proved `FractalGeometry.bowenGibbsStatement` in [NaturalMeasure](AnalyticESC/Dimension/NaturalMeasure.lean) and [Lq](AnalyticESC/Dimension/Lq.lean) |
 | Theorem 1.12, conjugacy and subconjugacy to similarities | **Proved**; `AnalyticESC.IFS.theorem_1_12_similarity` in [Characterisation](AnalyticESC/Conjugation/Characterisation.lean) and `AnalyticESC.IFS.theorem_1_12` in [PeriodicPoints](AnalyticESC/Conjugation/PeriodicPoints.lean); the latter retains the non-singleton attractor assumption |
 | Theorem 2.2, dual separation and super-exponential condensation dichotomy | **Proved**; `AnalyticESC.IFS.theorem_2_2` and `AnalyticESC.IFS.condensation_dichotomy` in [Main.Dichotomy](AnalyticESC/Main/Dichotomy.lean) |
 
 Supporting Sections 2–5, Koenigs linearisation and independence of the admissible complex
 radius are included. The representation uses holomorphic extensions of the real analytic maps.
+The literature proofs are supplied by
+[AnalyticESCLiterature](FractalGeometry/AnalyticESCLiterature.lean); the
+[analytic-system examples above](#analytic-and-conformal-systems) show their application to
+the original declarations.
 
 <a id="ref-troscheit2026"></a>
 
@@ -739,10 +764,15 @@ values occur. It includes the cylinder Gibbs bounds and identifies their pressur
 constant. This endpoint covers this finite mixing shift, rather than an arbitrary
 subshift of finite type. [Book text, Theorem 1.4](https://www.cpht.polytechnique.fr/sites/default/files/Bowen_LN_Math_470_second_ed_v2013.pdf).
 
-**Theorem 1.4, Gibbs measures for Hölder potentials: conditional input.**
-`AnalyticESC.BowenGibbsStatement` is an explicit one-sided full-shift hypothesis
-used in [Dimension.Lq](AnalyticESC/Dimension/Lq.lean). This entry does not claim
-an independent proof of Bowen's theorem in that interface.
+**Theorem 1.4, Gibbs existence on the one-sided full shift: proved.**
+`FractalGeometry.Bowen.bowenGibbsStatement_holds` in
+[Bowen.Main](FractalGeometry/Bowen/Main.lean) proves `AnalyticESC.BowenGibbsStatement`:
+on a finite nonempty alphabet, a potential with exponentially decaying variations has
+a Gibbs probability measure. The Gibbs bounds use the potential's pressure. This endpoint
+asserts existence and Gibbs bounds; uniqueness and ergodicity are not part of this interface.
+`FractalGeometry.bowenGibbsStatement` in
+[AnalyticESCLiterature](FractalGeometry/AnalyticESCLiterature.lean) supplies this proof to
+the natural-measure and `L^q` bounds in `AnalyticESC`.
 
 **Chapter 2, generator theorem: proved finite-alphabet two-sided-shift case.**
 `FractalGeometry.ksEntropy_shift_eq_entropy` in
@@ -920,10 +950,16 @@ without separation. It does not yet express that constant using projection entro
 [Authors' full paper](https://users.math.msu.edu/users/hhu/paper/09dimthy.pdf) ·
 [arXiv:1002.2036](https://arxiv.org/abs/1002.2036).
 
-**Separate conditional self-conformal input:** the broader exact-dimensionality conclusion is bundled into
-`AnalyticESC.RapaportMeasureStatement` in
-[Dimension.Rapaport](AnalyticESC/Dimension/Rapaport.lean). It remains a hypothesis
-of the dimension consequences indexed here.
+**Theorem 2.8 and Proposition 4.10, self-conformal measures on the line: proved.**
+`FractalGeometry.SelfConformal.FengHu.fengHuInterface_of_conformalIFS` in
+[FengHu.Main](FractalGeometry/SelfConformal/FengHu/Main.lean) proves exact dimensionality
+of projected Bernoulli measures with positive weights and the entropy limit of their
+conditional measures on coding fibres.
+Its `ConformalIFS` hypotheses require maps of `[0,1]` into itself with continuous,
+nonvanishing derivative, a uniform contraction bound and Lipschitz `log |φᵢ′|`.
+No separation or fixed-point condition is assumed. `fengHuInterface_holds` specialises
+this result to `AnalyticESC.RapaportHyp` and supplies the exact-dimensionality input
+to `FractalGeometry.rapaportMeasureStatement`.
 
 **Theorem 2.8, `BoxLike` collection: proved for the projective system.**
 `BoxLike.fengHuExactDim_holds` in [BoxLike.FengHu](BoxLike/FengHu.lean) proves
@@ -938,11 +974,26 @@ condition is assumed.
 Ariel Rapaport. *Dimension of self-conformal measures associated to an exponentially
 separated analytic IFS on ℝ*. Preprint, 2024; cited version **arXiv:2412.16753v2**, 2025.
 [Paper, version v2](https://arxiv.org/abs/2412.16753v2).
-**Theorem 1.2 and Corollary 1.3: conditional inputs, not proved in this collection.**
-They appear as `AnalyticESC.RapaportMeasureStatement` and `AnalyticESC.RapaportSetStatement`
-in [Dimension.Rapaport](AnalyticESC/Dimension/Rapaport.lean); the former also bundles
-the exact-dimensionality conclusion from [FengHu2009, Theorem 2.8](#ref-fenghu2009).
-Theorems using these parameters remain conditional even though they have no nonstandard axioms.
+**Theorem 1.2 and Corollary 1.3: proved in the `AnalyticESC` interface.**
+`FractalGeometry.rapaportMeasureStatement` and `FractalGeometry.rapaportSetStatement` in
+[AnalyticESCLiterature](FractalGeometry/AnalyticESCLiterature.lean) prove the exact
+`Prop`-valued statements in [Dimension.Defs](AnalyticESC/Dimension/Defs.lean).
+The hypotheses are collected in `AnalyticESC.RapaportHyp`: analytic contracting maps
+of `[0,1]` into itself with nonvanishing derivatives, no common fixed point and
+exponential separation. The measure theorem assumes positive probability weights and
+includes the exact-dimensionality conclusion from [FengHu2009](#ref-fenghu2009).
+The set theorem gives the Hausdorff dimension as the minimum of one and the pressure zero.
+
+The measure proof is assembled in
+[RapaportMeasure](FractalGeometry/Rapaport/Analytic/Main/RapaportMeasure.lean), and the
+set consequence in [Attractor.Corollary](FractalGeometry/Rapaport/Attractor/Corollary.lean).
+The entropy increase theorem, **Theorem 3.1**, is
+`FractalGeometry.Rapaport.Analytic.entropyIncreasePoly_of_rapaportHyp` in
+[Discharged](FractalGeometry/Rapaport/Analytic/Discharged.lean), using the proved
+`FractalGeometry.Hochman.hochmanEntropyGrowth` in
+[Hochman.Main](FractalGeometry/Hochman/Main.lean). The original `AnalyticESC` dimension
+declarations retain their literature parameters; applying the proofs above removes
+those parameters without adding axioms.
 
 <a id="ref-rapaport2023"></a>
 
@@ -1219,7 +1270,9 @@ The endpoint does not cover every finitely supported offspring law or part (i).
 
 ## Source collections
 
-The snapshot date is **22 October 2026**; `BoxLike` was added on **10 November 2026**.
+The initial snapshot date is **22 October 2026**. The additions on **10 November 2026**
+include `BoxLike` and 68 `FractalGeometry` modules proving the Bowen, Hochman, Feng–Hu
+and analytic Rapaport results and supplying the literature inputs of `AnalyticESC`.
 The [manifest](provenance/sources.json) records source revisions, retained files,
 hashes and integration changes.
 
@@ -1233,7 +1286,8 @@ hashes and integration changes.
 | `ExactOverlaps` | 555 | [Kittle–Kogler formalisation](https://github.com/ckkogler/exact-overlaps-one-dim-lean) |
 
 `FractalGeometry` supplies the self-similar core, the independent ergodic/entropy
-and covering-limit modules, and the subject imports listed above.
+and covering-limit modules, the self-conformal literature proofs, and the subject
+imports listed above.
 
 ## Build, checks and downstream use
 
